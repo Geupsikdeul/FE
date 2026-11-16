@@ -10,15 +10,24 @@
   const me = await S.boot("home");
   if (!me) { box.innerHTML = ""; return; }
 
-  let win, polls;
+  let win, polls, mine = [];
   try {
-    [win, polls] = await Promise.all([
+    let al;
+    [win, polls, al] = await Promise.all([
       S.loadWindow(today, 15),
       API.get("/polls", { status: "open", size: 20 }).catch((e) => ({ error: e })),
+      API.get("/auth/me/allergies").catch(() => ({ allergies: [] })),
     ]);
+    mine = al.allergies;
   } catch (e) { box.innerHTML = ""; UI.showError($("#flash"), e); return; }
 
   const day = win.days.find((x) => x.service_date === today);
+
+  // 내 알레르기와 겹치는 성분 안내
+  const allergyNote = (slot) => {
+    const hit = UI.allergenItems((slot.allergens || []).filter((a) => mine.includes(a)));
+    return hit.length ? `<p class="k-cap" style="color:var(--danger-text);font-weight:600;margin-top:6px">⚠ 내 알레르기 포함: ${hit.map((a) => esc(a.name)).join(", ")}</p>` : "";
+  };
 
   // 오늘 카드
   const cards = S.MEALS.map(([key, label]) => {
@@ -33,7 +42,7 @@
                  : '<span class="k-badge k-badge--soft">미응답 · 식사로 집계</span>';
       const ds = S.dishes(slot.menu);
       body = ds.length
-        ? `<p><a href="/menu?date=${today}&amp;slot=${key}">${ds.map(esc).join(" · ")}</a></p>`
+        ? `<p><a href="/menu?date=${today}&amp;slot=${key}">${ds.map(esc).join(" · ")}</a></p>` + allergyNote(slot)
         : '<p class="k-sec" style="font-weight:500">아직 식단이 올라오지 않았어요.</p>';
     }
     return `<section class="k-card k-card--pad k-meal"><div class="k-between"><h2>${label}</h2>${badge}</div>${body}</section>`;

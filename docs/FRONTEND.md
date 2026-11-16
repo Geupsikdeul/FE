@@ -20,9 +20,17 @@
 | 관리자 집계 | admin/meal-signups/summary(date, meal_type?), export(date, meal_type, format csv|xlsx) | /admin (대시보드: 선택 날짜 + 앞뒤 8일 summary 호출로 막대그래프), /admin/meals(희망 여부: 식사·결식·미응답 별도, 예상 = 식사+미응답, 합계 = 대상 수 표시, 학년별, 내보내기) |
 | 관리자 일정 | admin/meal-calendar(GET, POST upsert, PATCH {date}) — 운영 여부·사유·마감·메뉴 문자열 | /admin/calendar (식단 입력도 여기서: 조식·석식 메뉴 문자열) |
 
-## 백엔드에 없는 것 → 화면을 만들지 않음 (가짜 데이터·임시 백엔드 금지)
-희망 메뉴·좋아요, 알레르기, 오늘 메뉴 영양·칼로리, 중식 식단, AI 후보 추천, 식단표 AI 추천, 운영 설정, 이메일 인증·비밀번호 찾기(이메일), 정보 수정·탈퇴, 알림 설정.
-- 탭 바: 홈 · 식단표 · 식사 신청 · **투표** · 마이 (희망 메뉴 탭 대신 투표). `ui.js`의 TABS를 이에 맞게 바꿈.
+## BE에 새로 추가된 것 → 연동한 화면
+| 영역 | 엔드포인트 | 화면 |
+| --- | --- | --- |
+| 희망 메뉴 | GET/POST /wishes, POST /wishes/{id}/like(토글), DELETE /wishes/{id}(본인), DELETE /admin/wishes/{id} | /requests, /request-new, /admin/wishes |
+| 알레르기 | GET/PUT /auth/me/allergies `{allergies: ["달걀", …], registered}` — 이름 문자열 19종(1번은 "달걀"=난류, `UI.ALLERGEN_KEY`) | /allergy, /me 요약, /menu·/home 경고 |
+| 식단 알레르기 | meal-calendar 끼니마다 `allergens`, admin/meal-calendar `breakfast_allergens`/`dinner_allergens` | /menu, /admin/calendar |
+| AI (관리자) | POST /admin/ai/poll-candidates, /poll-recommendations, /menu-draft, GET /admin/ai/menu-catalog | /admin/wishes, /admin/plan |
+
+## 아직 없는 것 → 화면을 만들지 않음 (가짜 데이터·임시 백엔드 금지)
+오늘 메뉴 영양·칼로리, 중식 식단, 운영 설정, 이메일 인증·비밀번호 찾기(이메일), 정보 수정·탈퇴, 알림 설정.
+- 탭 바: 홈 · 식단표 · 식사 신청 · **희망 메뉴** · 마이 (디자인대로). 투표는 홈 ‘해야 할 일’과 희망 메뉴 상단 카드에서 진입.
 - 로그인 화면 "비밀번호 찾기"는 "담당 선생님께 임시 비밀번호를 받으세요" 안내로.
 
 ## 규칙

@@ -22,9 +22,19 @@ BACKEND_URL=http://다른주소:8000 PORT=3000 .venv/bin/python -m frontend.serv
 
 공통 코드: `frontend/static/js/api.js`(토큰·재발급·에러), `ui.js`(KST 날짜·탭 바·배너), 화면별 `static/js/pages/s-*.js`, `a-*.js`.
 
-## 백엔드에 없어서 화면이 없는 기능
+## 추가된 화면 (BE에 API 추가됨)
 
-희망 메뉴·좋아요, 알레르기, 오늘 메뉴 영양·칼로리(비로그인 조회 포함), 중식 식단, AI 후보 추천, 식단표 AI 추천,
-운영 설정, 이메일 인증·비밀번호 찾기, 정보 수정·탈퇴, 알림 설정.
+| 학생 | 어드민 |
+| --- | --- |
+| /requests 희망 메뉴(좋아요순·최신순, 좋아요, 내 글 삭제, 진행 중 투표 카드), /request-new 신청, /allergy 내 알레르기(19종 + 해당 없음), 식단표·홈에 알레르기 표시 | /admin/wishes 희망 메뉴 + AI 투표 후보·새 메뉴 추천 → 투표 만들기, /admin/plan AI 식단표 추천 → 일정에 반영, 급식 일정에 알레르기 입력 |
 
-이전 Flask 판(자체 서버, 위 기능 포함)은 이 저장소에 포함하지 않았어요.
+탭 바는 디자인대로 홈 · 식단표 · 식사 신청 · 희망 메뉴 · 마이. 투표는 홈 ‘해야 할 일’과 희망 메뉴 위 카드에서 들어가요.
+AI 기능은 BE 환경변수 `ANTHROPIC_API_KEY`가 있어야 동작해요(없으면 안내 문구 표시).
+
+아직 없는 기능: 오늘 메뉴 영양·칼로리, 중식, 운영 설정, 이메일 인증·비밀번호 찾기, 정보 수정·탈퇴, 알림 설정.
+
+## 배포 (Vercel)
+
+빌드 없이 `frontend/`를 정적 배포해요. `vercel.json`이 `server.py`와 같은 일을 해요:
+`/a` → `pages/student/a.html`, `/admin/a` → `pages/admin/a.html`, `/` → `/home`, `/api/*` → BE 배포 주소로 프록시(CORS 불필요).
+로컬 개발은 그대로 `frontend.server`를 쓰면 되고, 로컬 BE에 붙일 땐 `BACKEND_URL=http://localhost:8000`.

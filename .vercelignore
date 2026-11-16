@@ -1,0 +1,8 @@
+# 배포에는 정적 파일(frontend/)만 필요. 로컬 개발 서버·디자인 원본·문서는 올리지 않음
+design/
+docs/
+frontend/server.py
+frontend/__init__.py
+requirements.txt
+requirements-dev.txt
+.venv/

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>식단표 추천 · 급식들 어드민</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body>
+<div class="a-shell">
+  <aside class="a-side" id="a-side"></aside>
+  <main class="a-content">
+    <div id="msg" class="a-msg"></div>
+    <header class="a-top">
+      <div><h1>식단표 추천</h1><p>지금까지 등록한 메뉴(알레르기 정보 포함)로 끼니별 식단 초안을 받아요. 검토한 뒤 ‘일정에 반영’을 누르면 급식 일정에 저장돼요.</p></div>
+    </header>
+    <form class="a-filters" id="pf" autocomplete="off">
+      <div class="k-field"><label class="k-label" for="p-start">시작 날짜</label><input class="a-select a-date" type="date" id="p-start" name="start" required></div>
+      <div class="k-field"><label class="k-label" for="p-days">기간</label>
+        <select class="a-select" id="p-days" name="days"><option value="5">5일</option><option value="7" selected>1주</option><option value="14">2주</option></select></div>
+      <div class="k-field"><span class="k-label">&nbsp;</span><div class="a-actions"><button class="k-btn k-btn--sm" type="submit" id="run">추천 받기</button></div></div>
+    </form>
+    <div class="a-split" style="margin-top:0">
+      <section class="a-panel a-wide" aria-label="식단 초안">
+        <div class="a-panel__head"><h2>식단 초안 <span class="k-sec" style="font-weight:400" id="label"></span></h2>
+          <button class="k-btn k-btn--sm" type="button" id="apply" disabled>일정에 반영</button></div>
+        <div class="a-tablewrap">
+          <table class="a-table">
+            <thead><tr><th>날짜</th><th>조식</th><th>석식</th></tr></thead>
+            <tbody id="rows"><tr><td colspan="3" class="k-sec" style="text-align:center;padding:32px">날짜를 고르고 ‘추천 받기’를 눌러 주세요.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+      <aside class="a-panel a-narrow a-sticky" aria-label="검토 사항" id="side">
+        <div class="a-panel__head"><h2>검토 사항</h2></div>
+        <p class="k-sec" style="margin:0">AI가 만든 초안은 규칙(같은 음식 3일 안 반복, 필수 메뉴, 알레르기 정보)으로 다시 검사해 여기에 보여 드려요. 영양·알레르기 안전은 직접 확인해 주세요.</p>
+      </aside>
+    </div>
+  </main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/a-shell.js"></script>
+<script src="/static/js/pages/a-plan.js"></script>
+</body>
+</html>

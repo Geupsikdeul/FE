@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>희망 메뉴 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<header class="k-large"><h1>희망 메뉴</h1></header>
+<p class="k-lead">좋아요 상위 5개가 다음 투표 후보로 올라가요.</p>
+<main class="k-main k-main--fab">
+  <div id="flash"></div>
+  <div id="poll"></div>
+  <div class="k-head k-head--row"><h2 style="margin:0;font-size:12px;line-height:16px;font-weight:400" id="count">신청된 메뉴</h2></div>
+  <div class="k-segwrap">
+    <div class="k-seg k-seg--full" role="group" aria-label="정렬" id="sort">
+      <button type="button" class="is-on" aria-pressed="true" data-sort="likes">좋아요순</button>
+      <button type="button" aria-pressed="false" data-sort="new">최신순</button>
+    </div>
+  </div>
+  <div class="k-card" id="list"></div>
+</main>
+<a class="k-fab" href="/request-new" id="fab"></a>
+<div class="k-dock" id="dock"></div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-requests.js"></script>
+</body>
+</html>

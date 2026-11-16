@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "frontend",
+  "redirects": [
+    { "source": "/", "destination": "/home", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "__BACKEND_URL__/api/:path*" },
+    { "source": "/admin", "destination": "/pages/admin/dashboard.html" },
+    { "source": "/admin/:page", "destination": "/pages/admin/:page.html" },
+    { "source": "/:page", "destination": "/pages/student/:page.html" }
+  ]
+}
