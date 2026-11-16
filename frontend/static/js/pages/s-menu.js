@@ -20,10 +20,14 @@
 
   if (!(await S.boot("menu"))) { box.innerHTML = ""; return; }
 
-  let day;
+  let day, mine = [];
   try {
-    const items = await S.getRange("/meal-calendar", date, date);
+    const [items, al] = await Promise.all([
+      S.getRange("/meal-calendar", date, date),
+      API.get("/auth/me/allergies").catch(() => ({ allergies: [] })),
+    ]);
     day = items.find((x) => x.service_date === date);
+    mine = UI.allergenItems(al.allergies).map((a) => a.no);
   } catch (e) { box.innerHTML = ""; UI.showError($("#flash"), e); return; }
 
   const label = slot === "breakfast" ? "조식" : "석식";
@@ -36,6 +40,12 @@
     box.innerHTML = ds.length
       ? ds.map((n) => `<div class="k-row"><div class="k-t k-strong">${esc(n)}</div></div>`).join("")
       : '<div class="k-empty">아직 확정된 식단이 없어요.</div>';
+    // 알레르기 유발 물질 (끼니 단위). 내 알레르기와 겹치면 빨간 배지 + 안내
+    const items = UI.allergenItems(s.allergens);
+    const hit = items.filter((a) => mine.includes(a.no));
+    if (ds.length) box.innerHTML += `<div class="k-row k-row--col" style="align-items:flex-start;gap:8px">
+      <div class="k-cap">알레르기 유발 물질</div>${UI.allergenBadges(items, mine)}
+      ${hit.length ? `<div class="k-cap" style="color:var(--danger-text);font-weight:600">내 알레르기(${hit.map((a) => esc(a.name)).join(", ")})가 들어 있어요. 배식 때 한 번 더 확인해 주세요.</div>` : ""}</div>`;
     if (s.deadline) $("#note").innerHTML = `${label} 신청 마감: ${esc(fmt.kst(s.deadline))} · <a class="k-pt k-strong" href="/meals">식사 신청</a>`;
   }
 })();

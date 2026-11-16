@@ -12,4 +12,8 @@
     <div class="k-row"><span class="k-kvl">학번</span><span class="k-t k-strong">${esc(me.student_no)}</span></div>
     <div class="k-row"><span class="k-kvl">학년·반</span><span class="k-t k-strong">${esc(cls)}</span></div>`;
   $("#logout").addEventListener("click", () => API.logout());
+  API.get("/auth/me/allergies").then((r) => {
+    const names = UI.allergenItems(r.allergies).map((a) => a.name);
+    $("#allergy-sum").textContent = !r.registered ? "미등록" : names.length ? names.join(", ") : "해당 없음";
+  }).catch(() => {});
 })();

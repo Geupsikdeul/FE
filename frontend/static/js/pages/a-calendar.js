@@ -19,9 +19,11 @@
   function cell(e, meal) {
     if (!e) return '<span class="k-sec">미등록</span>';
     if (!e[meal + "_available"]) return `<span class="k-badge">미운영 · ${esc(AShell.REASON[e[meal + "_reason"]] || "사유 없음")}</span>`;
-    const dl = e[meal + "_deadline"], menu = e[meal + "_menu"];
+    const dl = e[meal + "_deadline"], menu = e[meal + "_menu"], al = e[meal + "_allergens"];
+    const alText = al == null ? (menu ? '<span class="k-cap" style="color:var(--danger-text)">알레르기 미입력</span>' : "")
+      : `<span class="k-cap">알레르기 ${al.length ? UI.allergenItems(al).map((a) => a.no).join(".") : "없음"}</span>`;
     return `<span class="k-badge k-badge--soft">운영</span> <span class="k-cap">마감 ${dl ? esc(fmt.kst(dl)) : "미정"}</span>
-      <div class="a-menu ${menu ? "" : "k-sec"}">${menu ? esc(menu) : "메뉴 미입력"}</div>`;
+      <div class="a-menu ${menu ? "" : "k-sec"}">${menu ? esc(menu) : "메뉴 미입력"}</div>${alText}`;
   }
   function draw() {
     $("#r-label").textContent = `${fmt.kdate(days[0])} ~ ${fmt.kdate(days[days.length - 1])} · 등록 ${days.filter((d) => entries.has(d)).length}/${days.length}일`;
@@ -34,9 +36,11 @@
     }).join("");
   }
 
+  let firstLoad = true; // 첫 로딩에서는 다른 화면에서 넘어온 안내(flash)를 지우지 않아요
   async function load() {
     const from = rf.from.value, to = rf.to.value;
-    AShell.clear();
+    if (!firstLoad) AShell.clear();
+    firstLoad = false;
     if (!AShell.isDate(from) || !AShell.isDate(to)) { AShell.error({ message: "날짜를 확인해 주세요." }); return; }
     if (to < from) { AShell.error({ message: "끝 날짜가 시작 날짜보다 앞이에요." }); return; }
     days = [];
@@ -80,6 +84,12 @@
           <input class="a-input a-input--wide" type="datetime-local" id="${meal}-dl" name="${meal}_deadline" value="${esc(dlVal)}"></div>
         <div class="k-field"><label class="k-label" for="${meal}-menu">메뉴 (쉼표로 구분)</label>
           <textarea class="a-textarea" style="min-height:88px" id="${meal}-menu" name="${meal}_menu" placeholder="예: 미역국, 계란말이, 김치, 흰쌀밥">${esc((e && e[meal + "_menu"]) || "")}</textarea></div>
+        <div class="k-field"><span class="k-label">알레르기 유발 물질 (학생 화면에 표시)</span>
+          <div class="k-chips" style="gap:6px">${Object.entries(UI.ALLERGENS).map(([no, name]) => {
+            const key = UI.ALLERGEN_KEY[no], on = ((e && e[meal + "_allergens"]) || []).includes(key);
+            return `<label class="k-chip" style="height:34px;padding:0 10px;font-size:13px"><input type="checkbox" name="${meal}_allergens" value="${esc(key)}" ${on ? "checked" : ""}><b>${no}</b>${esc(name)}</label>`;
+          }).join("")}</div>
+          <span class="k-help">메뉴가 있는데 아무것도 고르지 않으면 ‘알레르기 없음’으로 저장돼요.</span></div>
       </div>
       <div class="k-field" data-off ${on ? "hidden" : ""}><label class="k-label" for="${meal}-reason">미운영 사유</label>
         <select class="a-select" id="${meal}-reason" name="${meal}_reason">${reasonOpts(reason || "no_service")}</select></div>
@@ -122,6 +132,8 @@
       body[meal + "_deadline"] = on && dl ? fmt.kstInputToUtc(dl) : null;
       body[meal + "_menu"] = on ? F[meal + "_menu"].value.trim() || null : null;
       body[meal + "_reason"] = on ? null : F[meal + "_reason"].value;
+      const al = [...ef.querySelectorAll(`input[name=${meal}_allergens]:checked`)].map((x) => x.value);
+      body[meal + "_allergens"] = on && (al.length || body[meal + "_menu"]) ? al : null;
       F[meal + "_deadline"].classList.toggle("k-input--error", on && !dl);
       if (on && !dl) errs.push(`${UI.MEAL[meal]} 신청 마감 시각을 넣어 주세요.`);
       if (on && dl && new Date(fmt.kstInputToUtc(dl)) > new Date(`${fmt.addDays(d, 1)}T00:00:00+09:00`)) errs.push(`${UI.MEAL[meal]} 마감이 급식 날짜보다 뒤예요.`);

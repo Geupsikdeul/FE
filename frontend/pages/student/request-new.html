@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>희망 메뉴 신청 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<nav class="k-nav" aria-label="뒤로"><a href="/requests"><span class="k-chev k-chev--back"></span>희망 메뉴</a></nav>
+<header class="k-large k-large--push"><h1>희망 메뉴 신청</h1></header>
+<p class="k-lead">모두 입력해야 등록할 수 있어요.</p>
+<main class="k-main">
+  <div id="flash"></div>
+  <form class="k-card" id="rf" novalidate>
+    <div class="k-form" style="gap:18px;padding:20px 16px">
+      <div class="k-field">
+        <label class="k-label" for="menu">메뉴 이름</label>
+        <input class="k-input" id="menu" name="menu_name" maxlength="40" required placeholder="예: 마라탕" aria-describedby="menu-err">
+        <span class="k-help k-help--error" id="menu-err" hidden>메뉴 이름을 입력해 주세요.</span>
+      </div>
+      <div class="k-pair">
+        <div class="k-field"><label class="k-label" for="name">이름</label><input class="k-input" id="name" disabled></div>
+        <div class="k-field"><label class="k-label" for="sid">학번</label><input class="k-input" id="sid" disabled></div>
+      </div>
+      <div class="k-field">
+        <label class="k-label" for="why">사유</label>
+        <textarea class="k-input k-textarea" id="why" name="reason" maxlength="200" required placeholder="왜 먹고 싶은지 적어 주세요" aria-describedby="why-err"></textarea>
+        <span class="k-help k-help--error" id="why-err" hidden>사유를 2자 이상 입력해 주세요.</span>
+      </div>
+      <span class="k-help">이름·학번은 내 계정 정보예요. 다른 학생에게는 “N학년 익명”으로만 보여요.</span>
+    </div>
+  </form>
+</main>
+<div class="k-savebar">
+  <button class="k-btn k-btn--block" type="submit" form="rf" id="submit">등록하기</button>
+  <a class="k-btn k-btn--plain k-btn--block k-btn--sm" href="/requests">취소</a>
+</div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-request-new.js"></script>
+</body>
+</html>

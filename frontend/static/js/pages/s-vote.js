@@ -10,7 +10,7 @@
     $("#back").hidden = false;
     $("#header").classList.add("k-large--push");
   }
-  if (!(await S.boot(id ? null : "vote"))) { box.innerHTML = ""; return; }
+  if (!(await S.boot(id ? null : "requests"))) { box.innerHTML = ""; return; }
 
   if (id) await detail(id); else await list();
 

@@ -51,7 +51,7 @@
     ["home", "/home", "홈", '<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'],
     ["menu", "/menu", "식단표", '<path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M17 21V3c-2 2-3 5-3 8h3"/>'],
     ["meals", "/meals", "식사 신청", '<path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/>'],
-    ["vote", "/vote", "투표", '<path d="M4 13h16v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M7 13V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v9"/><path d="M9.5 8l2 2 3.5-3.5"/>'],
+    ["requests", "/requests", "희망 메뉴", '<path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>'],
     ["me", "/me", "마이", '<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/>'],
   ];
   const tabbar = (active) => `<nav class="k-tabbar" aria-label="주요 메뉴">${TABS.map(([k, href, label, path]) =>
@@ -76,9 +76,15 @@
     try { return await fn(); } finally { if (btn) btn.disabled = false; }
   }
 
+  // 백엔드는 알레르기를 이름 문자열로 주고받아요(1번만 "달걀", 화면 표기는 "난류"). 번호 ↔ 백엔드 이름 변환.
+  const ALLERGEN_KEY = Object.fromEntries(Object.entries(ALLERGENS).map(([no, name]) => [no, no === "1" ? "달걀" : name]));
+  const ALLERGEN_NO = Object.fromEntries(Object.entries(ALLERGEN_KEY).map(([no, key]) => [key, Number(no)]));
+  // ["달걀","우유"] → [{no:1,name:"난류"},{no:2,name:"우유"}] (번호순)
+  const allergenItems = (keys) => (keys || []).map((k) => ALLERGEN_NO[k]).filter(Boolean).sort((a, b) => a - b).map((no) => ({ no, name: ALLERGENS[no] }));
+
   const allergenBadges = (list, mine = []) => list && list.length
     ? `<div class="k-badges">${list.map((a) => `<span class="k-badge ${mine.includes(a.no) ? "k-badge--danger" : ""}">${a.no} ${esc(a.name)}</span>`).join("")}</div>`
     : '<div class="k-cap">알레르기 유발 물질 없음</div>';
 
-  window.UI = { $, $$, esc, fmt, ICONS, mark, tabbar, back, bannerHTML, banner, flash, showFlash, showError, busy, allergenBadges, ALLERGENS, MEAL };
+  window.UI = { $, $$, esc, fmt, ICONS, mark, tabbar, back, bannerHTML, banner, flash, showFlash, showError, busy, allergenBadges, allergenItems, ALLERGENS, ALLERGEN_KEY, ALLERGEN_NO, MEAL };
 })();

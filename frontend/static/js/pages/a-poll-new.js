@@ -50,7 +50,14 @@
     F.target_date.value = fmt.addDays(t, 7);
     F.opens_at.value = fmt.addDays(t, 1) + "T08:00";
     F.closes_at.value = fmt.addDays(t, 3) + "T18:00";
-    addOpt(); addOpt();
+    // 희망 메뉴 화면의 "이 후보로 투표 만들기"에서 넘어온 선택지
+    let pre = null;
+    try { pre = JSON.parse(sessionStorage.getItem("gs_poll_prefill") || "null"); sessionStorage.removeItem("gs_poll_prefill"); } catch {}
+    if (pre && pre.options && pre.options.length) {
+      pre.options.forEach((o) => addOpt({ menu_name: o.menu_name, description: o.description }));
+      if (pre.options.length < 2) addOpt();
+      if (!F.title.value) F.title.value = "다음 특식, 어떤 메뉴가 좋을까요?";
+    } else { addOpt(); addOpt(); }
   }
 
   const me = await AShell.init("votes");

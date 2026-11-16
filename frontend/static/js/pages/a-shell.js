@@ -7,6 +7,8 @@
     ["dashboard", "/admin", "대시보드", '<path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/>'],
     ["meals", "/admin/meals", "희망 여부", '<path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/>'],
     ["votes", "/admin/votes", "메뉴 투표", '<path d="M5 21V10M12 21V3M19 21v-7"/>'],
+    ["wishes", "/admin/wishes", "희망 메뉴", '<path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>'],
+    ["plan", "/admin/plan", "식단표 추천", '<path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>'],
     ["calendar", "/admin/calendar", "급식 일정", '<path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/>'],
     ["students", "/admin/students", "학생 관리", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'],
   ];
