@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>메뉴 투표</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <nav class="k-nav" aria-label="뒤로">
+    <a href="Requests.dc.html"><span class="k-chev k-chev--back"></span>희망 메뉴</a>
+  </nav>
+  <header class="k-large k-large--push">
+    <div>
+      <h1>메뉴 투표</h1>
+    </div>
+    <span class="k-badge" style="margin-bottom:8px">284명 참여</span>
+  </header>
+  <p class="k-lead">11월 특식 · 10월 15일(목) 18:00 마감</p>
+  <main class="k-main">
+    <h2 class="k-head" style="margin-top:0">좋아요 상위 5개 + AI가 고른 1개</h2>
+    <form class="k-stack" style="padding:0 16px" aria-label="투표 후보">
+      <label class="k-opt k-opt--sel">
+        <input class="k-radio" type="radio" name="menu" checked>
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">마라탕</span><span class="k-cap">좋아요 142</span></span>
+      </label>
+      <label class="k-opt">
+        <input class="k-radio" type="radio" name="menu">
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">치즈 돈까스</span><span class="k-cap">좋아요 98</span></span>
+      </label>
+      <label class="k-opt">
+        <input class="k-radio" type="radio" name="menu">
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">로제 떡볶이</span><span class="k-cap">좋아요 87</span></span>
+      </label>
+      <label class="k-opt">
+        <input class="k-radio" type="radio" name="menu">
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">닭갈비</span><span class="k-cap">좋아요 74</span></span>
+      </label>
+      <label class="k-opt">
+        <input class="k-radio" type="radio" name="menu">
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">탕수육</span><span class="k-cap">좋아요 61</span></span>
+      </label>
+      <label class="k-opt">
+        <input class="k-radio" type="radio" name="menu">
+        <span class="k-grow"><span class="k-t k-strong" style="display:block">제육 덮밥</span><span class="k-cap">학년 상관없이 고르게 좋아할 메뉴</span></span>
+        <span class="k-badge k-badge--primary">AI 추천</span>
+      </label>
+    </form>
+  </main>
+  <div class="k-savebar">
+    <a class="k-btn k-btn--block" href="VoteDone.dc.html">마라탕에 투표하기</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

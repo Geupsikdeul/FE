@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>메뉴 투표 · 투표 후</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <nav class="k-nav" aria-label="뒤로">
+    <a href="Requests.dc.html"><span class="k-chev k-chev--back"></span>희망 메뉴</a>
+  </nav>
+  <header class="k-large k-large--push">
+    <h1>메뉴 투표</h1>
+    <span class="k-badge" style="margin-bottom:8px">284명 참여</span>
+  </header>
+  <p class="k-lead">11월 특식 · 10월 15일(목) 18:00 마감</p>
+  <main class="k-main">
+    <div class="k-banner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>
+      <span><b>마라탕</b>에 투표했어요. 마감 전까지 한 번 바꿀 수 있어요.</span>
+    </div>
+
+    <h2 class="k-head" style="margin-top:0">현재 득표율</h2>
+    <div class="k-stack" style="padding:0 16px">
+      <div class="k-opt k-opt--col k-opt--sel">
+        <div class="k-between">
+          <span class="k-flex"><span class="k-t k-strong">마라탕</span><span class="k-badge k-badge--primary">내 선택</span></span>
+          <span class="k-t k-strong">39.4%</span>
+        </div>
+        <div class="k-bar" role="img" aria-label="마라탕 39.4%"><i style="width:39.4%"></i></div>
+      </div>
+      <div class="k-opt k-opt--col">
+        <div class="k-between"><span class="k-t k-strong">치즈 돈까스</span><span class="k-t k-strong">20.4%</span></div>
+        <div class="k-bar" role="img" aria-label="치즈 돈까스 20.4%"><i style="width:20.4%"></i></div>
+      </div>
+      <div class="k-opt k-opt--col">
+        <div class="k-between"><span class="k-t k-strong">로제 떡볶이</span><span class="k-t k-strong">17.6%</span></div>
+        <div class="k-bar" role="img" aria-label="로제 떡볶이 17.6%"><i style="width:17.6%"></i></div>
+      </div>
+      <div class="k-opt k-opt--col">
+        <div class="k-between"><span class="k-flex"><span class="k-t k-strong">제육 덮밥</span><span class="k-badge k-badge--primary">AI 추천</span></span><span class="k-t k-strong">9.5%</span></div>
+        <div class="k-bar" role="img" aria-label="제육 덮밥 9.5%"><i style="width:9.5%"></i></div>
+      </div>
+      <div class="k-opt k-opt--col">
+        <div class="k-between"><span class="k-t k-strong">닭갈비</span><span class="k-t k-strong">7.4%</span></div>
+        <div class="k-bar" role="img" aria-label="닭갈비 7.4%"><i style="width:7.4%"></i></div>
+      </div>
+      <div class="k-opt k-opt--col">
+        <div class="k-between"><span class="k-t k-strong">탕수육</span><span class="k-t k-strong">5.6%</span></div>
+        <div class="k-bar" role="img" aria-label="탕수육 5.6%"><i style="width:5.6%"></i></div>
+      </div>
+    </div>
+  </main>
+  <div class="k-savebar">
+    <a class="k-btn k-btn--tonal k-btn--block" href="Vote.dc.html">투표 바꾸기</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

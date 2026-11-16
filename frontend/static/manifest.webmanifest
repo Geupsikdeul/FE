@@ -1,0 +1,16 @@
+{
+  "name": "급식들",
+  "short_name": "급식들",
+  "description": "오늘의 급식, 식사 신청, 메뉴 투표",
+  "lang": "ko",
+  "start_url": "/home",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#efeff4",
+  "theme_color": "#efeff4",
+  "icons": [
+    {"src": "/static/icon.svg", "sizes": "any", "type": "image/svg+xml"},
+    {"src": "/static/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "/static/icon-180.png", "sizes": "180x180", "type": "image/png"}
+  ]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>로그인 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<main class="k-main k-auth">
+  <div class="k-brand"><div class="k-mark" id="mark"></div><span>급식들</span></div>
+  <p class="k-lead" style="padding:0 4px 32px">학번과 비밀번호로 로그인해요.</p>
+  <div id="flash" style="margin:0 -16px"></div>
+  <form class="k-card" id="login" novalidate>
+    <div class="k-form" style="gap:18px;padding:20px 16px">
+      <div class="k-field">
+        <label class="k-label" for="sid">학번</label>
+        <input class="k-input" id="sid" name="student_no" inputmode="numeric" autocomplete="username" maxlength="32" placeholder="10312" required autofocus>
+      </div>
+      <div class="k-field">
+        <label class="k-label" for="pw">비밀번호</label>
+        <input class="k-input" id="pw" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+        <span class="k-help k-help--error" id="login-err" hidden></span>
+      </div>
+    </div>
+  </form>
+  <div class="k-actions" style="padding-top:20px">
+    <button class="k-btn k-btn--block" type="submit" form="login" id="submit">로그인</button>
+  </div>
+  <div class="k-between" style="padding:12px 8px 0">
+    <button class="k-btn k-btn--plain k-btn--sm" type="button" id="forgot" aria-expanded="false" aria-controls="forgot-help">비밀번호 찾기</button>
+    <span class="k-flex k-sec" style="gap:0">처음이신가요?<a class="k-btn k-btn--plain k-btn--sm" href="/signup" id="signup-link">회원가입</a></span>
+  </div>
+  <div id="forgot-help" class="k-banner" role="status" style="margin:12px 0 0" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+    <span><b>담당 선생님께 임시 비밀번호를 받으세요.</b> 임시 비밀번호로 로그인하면 바로 새 비밀번호로 바꾸게 돼요.</span>
+  </div>
+</main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-login.js"></script>
+</body>
+</html>

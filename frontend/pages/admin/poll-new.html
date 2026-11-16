@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>투표 만들기 · 급식들 어드민</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body>
+<div class="a-shell">
+  <aside class="a-side" id="a-side"></aside>
+  <main class="a-content">
+    <div id="msg" class="a-msg"></div>
+    <nav class="a-back"><a class="k-btn k-btn--plain k-btn--sm" id="back" href="/admin/votes"><span class="k-chev k-chev--back"></span>투표 목록</a></nav>
+    <header class="a-top">
+      <div><h1 id="h">새 투표 만들기</h1><p id="hp">만든 투표는 비공개로 저장돼요. 투표 현황에서 공개하면 학생에게 보여요.</p></div>
+      <div class="a-actions"><button class="k-btn k-btn--sm" type="submit" form="pf" id="save">저장</button></div>
+    </header>
+
+    <form class="a-col a-form" id="pf" novalidate autocomplete="off">
+      <section class="a-panel" aria-label="기본 정보">
+        <div class="a-panel__head"><h2>기본 정보</h2></div>
+        <div class="a-col">
+          <div class="k-field"><label class="k-label" for="p-title">제목</label>
+            <input class="k-input a-in" id="p-title" name="title" maxlength="200" required placeholder="예: 11월 3주차 특식 메뉴 투표"></div>
+          <div class="k-field"><label class="k-label" for="p-desc">설명 (선택)</label>
+            <textarea class="k-input k-textarea a-in" id="p-desc" name="description" placeholder="예: 가장 먹고 싶은 메뉴 하나를 골라주세요."></textarea></div>
+          <div class="a-form-row">
+            <div class="k-field"><label class="k-label" for="p-target">급식 날짜 (결과를 반영할 날)</label>
+              <input class="a-input a-input--wide" id="p-target" name="target_date" type="date" required></div>
+            <div class="k-field"><label class="k-label" for="p-open">투표 시작 (한국 시간)</label>
+              <input class="a-input a-input--wide" id="p-open" name="opens_at" type="datetime-local" required></div>
+            <div class="k-field"><label class="k-label" for="p-close">투표 마감 (한국 시간)</label>
+              <input class="a-input a-input--wide" id="p-close" name="closes_at" type="datetime-local" required></div>
+          </div>
+          <div class="k-help" id="period-msg">마감은 시작보다 뒤여야 해요.</div>
+        </div>
+      </section>
+
+      <section class="a-panel" aria-label="선택지">
+        <div class="a-panel__head"><h2>선택지 <span class="k-sec" style="font-weight:400" id="opt-count"></span></h2><span class="k-cap">2개 이상 필요해요</span></div>
+        <div id="opt-lock"></div>
+        <div class="a-col" id="opts"></div>
+        <div class="k-help" id="opt-msg"></div>
+        <div class="a-actions" style="margin-top:12px"><button class="k-btn k-btn--tonal k-btn--sm" type="button" id="add-opt">선택지 추가</button></div>
+      </section>
+
+      <div class="a-actions">
+        <button class="k-btn" type="submit">저장</button>
+        <a class="k-btn k-btn--plain" id="cancel" href="/admin/votes">취소</a>
+      </div>
+    </form>
+  </main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/a-shell.js"></script>
+<script src="/static/js/pages/a-poll-new.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>내 정보</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <header class="k-large"><h1>내 정보</h1></header>
+  <p class="k-lead">계정 정보와 내 활동을 확인해요.</p>
+  <main class="k-main">
+    <div class="k-card">
+      <div class="k-row"><span class="k-kvl">이름</span><span class="k-t k-strong">최지민</span></div>
+      <div class="k-row"><span class="k-kvl">학번</span><span class="k-t k-strong">2308 <span class="k-sec" style="font-weight:400;font-size:14px">(2학년 3반 8번)</span></span></div>
+      <div class="k-row"><span class="k-kvl">학교 이메일</span><span class="k-t k-strong" style="font-size:15px">2308@school.hs.kr</span></div>
+      <div class="k-row"><span class="k-kvl">가입일</span><span class="k-t k-strong">2026년 3월 4일</span></div>
+    </div>
+
+    <h2 class="k-head">내 활동</h2>
+    <div class="k-card">
+      <a class="k-row" href="Allergy.dc.html" style="min-height:64px">
+        <div class="k-grow"><div class="k-cap">알레르기</div><div class="k-t k-strong">우유 · 새우</div></div>
+        <span class="k-t k-pt k-strong">수정하기</span><span class="k-chev"></span>
+      </a>
+      <a class="k-row" href="MeRequests.dc.html" style="min-height:64px">
+        <div class="k-grow"><div class="k-cap">신청한 희망 메뉴</div><div class="k-t k-strong">3개</div></div>
+        <span class="k-cap">1개 투표 후보 선정</span><span class="k-chev"></span>
+      </a>
+      <div class="k-row" style="min-height:64px">
+        <div class="k-grow"><div class="k-cap">이번 달 결식</div><div class="k-t k-strong">4끼</div></div>
+        <span class="k-cap">조식 3 · 석식 1</span>
+      </div>
+    </div>
+
+    <h2 class="k-head">설정</h2>
+    <div class="k-card">
+      <a class="k-row" href="MeEdit.dc.html"><span class="k-grow k-t">정보 수정</span><span class="k-chev"></span></a>
+      <a class="k-row" href="MePassword.dc.html"><span class="k-grow k-t">비밀번호 변경</span><span class="k-chev"></span></a>
+      <a class="k-row" href="MeRequests.dc.html"><span class="k-grow k-t">내 희망 메뉴</span><span class="k-chev"></span></a>
+      <a class="k-row" href="MeNotifications.dc.html"><span class="k-grow k-t">알림 설정</span><span class="k-chev"></span></a>
+    </div>
+    <div class="k-card" style="margin-top:16px">
+      <a class="k-row" href="Login.dc.html"><span class="k-grow k-t" style="color:var(--danger-text)">로그아웃</span></a>
+    </div>
+  </main>
+  <nav class="k-tabbar" aria-label="주요 메뉴">
+    <a href="Main.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>홈</span></a>
+    <a href="Menu.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M17 21V3c-2 2-3 5-3 8h3"/></svg><span>식단표</span></a>
+    <a href="Meals.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg><span>식사 신청</span></a>
+    <a href="Requests.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><span>희망 메뉴</span></a>
+    <a href="Me.dc.html" class="is-on" aria-current="page"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg><span>마이</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

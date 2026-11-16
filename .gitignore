@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+instance/
+.pytest_cache/
+.DS_Store
+# 백엔드까지 직접 만든 이전 판. FE 저장소에는 올리지 않는다.
+_legacy_flask/

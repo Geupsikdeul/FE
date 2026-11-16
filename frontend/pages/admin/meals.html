@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>희망 여부 · 급식들 어드민</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body>
+<div class="a-shell">
+  <aside class="a-side" id="a-side"></aside>
+  <main class="a-content">
+    <div id="msg" class="a-msg"></div>
+    <header class="a-top">
+      <div><h1>희망 여부</h1><p>날짜와 끼니별로 학생들의 식사·결식 응답을 모아봐요. 미응답은 식사로 집계해요.</p></div>
+      <div class="a-actions">
+        <button class="k-btn k-btn--tonal k-btn--sm" type="button" id="x-csv">CSV 내보내기</button>
+        <button class="k-btn k-btn--tonal k-btn--sm" type="button" id="x-xlsx">엑셀(XLSX) 내보내기</button>
+      </div>
+    </header>
+
+    <form class="a-filters" id="f" autocomplete="off">
+      <div class="k-field"><label class="k-label" for="f-date">날짜</label>
+        <input class="a-select a-date" type="date" id="f-date" name="date" required></div>
+      <div class="k-field"><span class="k-label" id="f-meal-l">끼니</span>
+        <div class="k-seg" role="radiogroup" aria-labelledby="f-meal-l">
+          <label><input type="radio" name="meal" value="breakfast" checked>조식</label>
+          <label><input type="radio" name="meal" value="dinner">석식</label>
+        </div></div>
+      <div class="k-field"><span class="k-label">&nbsp;</span>
+        <div class="a-actions">
+          <button class="k-btn k-btn--plain k-btn--sm" type="button" id="f-prev">← 전날</button>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button" id="f-today">오늘</button>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button" id="f-next">다음날 →</button>
+        </div></div>
+    </form>
+
+    <div id="op"></div>
+
+    <section class="a-tiles a-tiles--4" aria-label="집계" id="tiles">
+      <div class="a-tile a-tile--hi"><div class="k-cap" style="color:var(--text)">예상 식사 인원</div><div class="a-num">–</div><div style="color:var(--text)">식사 + 미응답</div></div>
+      <div class="a-tile"><div class="k-cap">식사</div><div class="a-num">–</div><div class="k-sec">직접 식사를 선택했어요</div></div>
+      <div class="a-tile"><div class="k-cap">미응답</div><div class="a-num">–</div><div class="k-sec">식사로 집계돼요</div></div>
+      <div class="a-tile"><div class="k-cap">결식</div><div class="a-num">–</div><div class="k-sec">식사하지 않아요</div></div>
+    </section>
+
+    <div class="a-split">
+      <section class="a-panel a-wide" aria-label="합계 확인">
+        <div class="a-panel__head"><h2>합계 확인</h2><span id="final"></span></div>
+        <div id="check"><p class="k-sec" style="margin:0">불러오는 중…</p></div>
+      </section>
+      <section class="a-panel a-narrow" aria-label="학년별 식사 인원">
+        <div class="a-panel__head"><h2>학년별 식사 인원</h2><span class="k-cap">식사를 고른 학생</span></div>
+        <div class="a-list" id="grades"><p class="k-sec" style="margin:0">불러오는 중…</p></div>
+      </section>
+    </div>
+  </main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/a-shell.js"></script>
+<script src="/static/js/pages/a-meals.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>로그인</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <main class="k-main k-auth">
+    <div class="k-brand"><div class="k-mark" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div><span>급식들</span></div>
+    <p class="k-lead" style="padding:0 4px 32px">학교 이메일로 로그인해요.</p>
+    <form class="k-card">
+      <div class="k-form" style="gap:18px;padding:20px 16px">
+        <div class="k-field">
+          <label class="k-label" for="email">학교 이메일</label>
+          <input class="k-input" id="email" type="email" placeholder="2308@school.hs.kr">
+        </div>
+        <div class="k-field">
+          <label class="k-label" for="pw">비밀번호</label>
+          <input class="k-input" id="pw" type="password">
+        </div>
+      </div>
+    </form>
+    <div class="k-actions" style="padding-top:20px">
+      <a class="k-btn k-btn--block" href="Main.dc.html">로그인</a>
+    </div>
+    <div class="k-between" style="padding:12px 8px 0">
+      <a class="k-btn k-btn--plain k-btn--sm" href="Reset.dc.html">비밀번호 찾기</a>
+      <span class="k-flex k-sec" style="gap:0">처음이신가요?<a class="k-btn k-btn--plain k-btn--sm" href="Signup.dc.html">회원가입</a></span>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

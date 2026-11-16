@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>식사 신청 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<header class="k-large"><h1>식사 신청</h1></header>
+<main class="k-main">
+  <div id="flash"></div>
+  <div class="k-banner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+    <span><b>응답하지 않으면 식사로 집계돼요.</b> 급식일 14일 전부터 고를 수 있고, 끼니마다 마감 시각이 지나면 바꿀 수 없어요.</span>
+  </div>
+  <div class="k-between" style="padding:0 20px 12px">
+    <span class="k-cap" id="range">조식·석식만 신청해요.</span>
+    <span class="k-strong k-pt" id="pending" style="white-space:nowrap"></span>
+  </div>
+  <form id="meals" novalidate>
+    <div class="k-stack" id="content"></div>
+  </form>
+</main>
+<div class="k-dock">
+  <div class="k-savebar k-savebar--tab">
+    <div id="result" aria-live="polite"></div>
+    <button class="k-btn k-btn--block" type="submit" form="meals" id="save" disabled>신청 저장</button>
+  </div>
+  <div id="dock"></div>
+</div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-meals.js"></script>
+</body>
+</html>

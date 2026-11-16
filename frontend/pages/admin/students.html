@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>학생 관리 · 급식들 어드민</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body>
+<div class="a-shell">
+  <aside class="a-side" id="a-side"></aside>
+  <main class="a-content">
+    <div id="msg" class="a-msg"></div>
+    <header class="a-top">
+      <div><h1>학생 관리</h1><p>재학생 명단에 있는 학번만 가입할 수 있어요. 가입한 학생 계정을 켜고 끄거나 임시 비밀번호를 발급해요.</p></div>
+    </header>
+
+    <div class="a-filters">
+      <div class="k-seg" role="tablist" aria-label="학생 관리 메뉴" id="tabs">
+        <a href="?tab=accounts" data-tab="accounts" role="tab">가입 학생</a>
+        <a href="?tab=allowed" data-tab="allowed" role="tab">재학생 명단</a>
+        <a href="?tab=upload" data-tab="upload" role="tab">명단 업로드</a>
+      </div>
+    </div>
+
+    <!-- 가입 학생 -->
+    <section class="a-panel" id="t-accounts" role="tabpanel" hidden aria-label="가입 학생">
+      <form class="a-filters" id="af">
+        <div class="k-field"><label class="k-label" for="a-g">학년</label>
+          <select class="a-select" id="a-g" name="grade"><option value="">전체</option><option value="1">1학년</option><option value="2">2학년</option><option value="3">3학년</option></select></div>
+        <div class="k-field"><label class="k-label" for="a-c">반</label>
+          <select class="a-select" id="a-c" name="class_no" data-classes><option value="">전체</option></select></div>
+        <div class="k-field"><label class="k-label" for="a-s">상태</label>
+          <select class="a-select" id="a-s" name="is_active"><option value="">전체</option><option value="true">활성</option><option value="false">비활성</option></select></div>
+      </form>
+      <div class="a-tablewrap">
+        <table class="a-table">
+          <thead><tr><th>학번</th><th>이름</th><th>학년·반</th><th>상태</th><th>가입일</th><th></th></tr></thead>
+          <tbody id="a-rows"><tr><td colspan="6" class="k-sec" style="text-align:center;padding:32px">불러오는 중…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="a-pager" id="a-pager"></div>
+    </section>
+
+    <!-- 재학생 명단 -->
+    <section class="a-panel" id="t-allowed" role="tabpanel" hidden aria-label="재학생 명단">
+      <form class="a-filters" id="lf">
+        <div class="k-field"><label class="k-label" for="l-g">학년</label>
+          <select class="a-select" id="l-g" name="grade"><option value="">전체</option><option value="1">1학년</option><option value="2">2학년</option><option value="3">3학년</option></select></div>
+        <div class="k-field"><label class="k-label" for="l-c">반</label>
+          <select class="a-select" id="l-c" name="class_no" data-classes><option value="">전체</option></select></div>
+        <div class="k-field"><label class="k-label" for="l-u">가입 여부</label>
+          <select class="a-select" id="l-u" name="is_used"><option value="">전체</option><option value="true">가입함</option><option value="false">미가입</option></select></div>
+      </form>
+      <div class="a-tablewrap">
+        <table class="a-table">
+          <thead><tr><th>학번</th><th>이름</th><th>학년·반</th><th>가입 여부</th></tr></thead>
+          <tbody id="l-rows"><tr><td colspan="4" class="k-sec" style="text-align:center;padding:32px">불러오는 중…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="a-pager" id="l-pager"></div>
+    </section>
+
+    <!-- 명단 업로드 -->
+    <section class="a-panel" id="t-upload" role="tabpanel" hidden aria-label="명단 업로드">
+      <div class="a-panel__head"><h2>재학생 명단 CSV 업로드</h2></div>
+      <form class="a-col" id="uf" style="max-width:720px">
+        <p class="k-sec" style="margin:0">첫 줄은 <b>student_no,name,grade,class_no</b> 헤더예요. 예: <code>10312,김철수,1,3</code> (학번 5자리)</p>
+        <div class="k-field"><label class="k-label" for="u-file">CSV 파일</label>
+          <input class="a-file" type="file" id="u-file" name="file" accept=".csv,text/csv" required></div>
+        <div class="k-field"><span class="k-label" id="u-mode-l">방식</span>
+          <div class="k-seg" role="radiogroup" aria-labelledby="u-mode-l">
+            <label><input type="radio" name="mode" value="append" checked>추가</label>
+            <label><input type="radio" name="mode" value="replace">전체 교체</label>
+          </div>
+          <div class="k-help" id="u-mode-help">명단에 없는 학번만 새로 넣어요. 이미 있는 학번은 건너뛰어요.</div></div>
+        <div class="a-actions"><button class="k-btn k-btn--sm" type="submit">업로드</button></div>
+      </form>
+      <div id="u-result"></div>
+    </section>
+
+    <dialog class="a-modal" id="pw-dlg" aria-labelledby="pw-h">
+      <form method="dialog" class="a-col">
+        <h2 id="pw-h" style="margin:0">임시 비밀번호를 발급했어요</h2>
+        <div id="pw-body"></div>
+        <div class="a-actions" style="justify-content:flex-end"><button class="k-btn k-btn--tonal k-btn--sm" type="button" id="pw-copy">복사</button><button class="k-btn k-btn--sm" value="close">닫기</button></div>
+      </form>
+    </dialog>
+  </main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/a-shell.js"></script>
+<script src="/static/js/pages/a-students.js"></script>
+</body>
+</html>

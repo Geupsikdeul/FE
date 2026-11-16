@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>회원가입 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<nav class="k-nav" aria-label="뒤로"><a href="/login"><span class="k-chev k-chev--back"></span>로그인</a></nav>
+<header class="k-large k-large--push"><h1>회원가입</h1></header>
+<p class="k-lead">학번으로 재학생 명단을 확인하고 가입해요.</p>
+<main class="k-main">
+  <div id="flash"></div>
+  <form id="signup" novalidate>
+    <div class="k-card">
+      <div class="k-form" style="gap:18px;padding:20px 16px">
+        <div class="k-field">
+          <label class="k-label" for="sid">학번</label>
+          <div class="k-inline">
+            <input class="k-input" id="sid" name="student_no" inputmode="numeric" autocomplete="username" maxlength="32" placeholder="10312" aria-describedby="sid-help">
+            <button class="k-btn k-btn--tonal k-btn--sm" type="button" id="check">확인</button>
+          </div>
+          <span class="k-help" id="sid-help">학번을 입력하고 확인을 눌러 주세요.</span>
+        </div>
+        <div id="who" hidden></div>
+      </div>
+    </div>
+
+    <div id="step2" hidden>
+      <h2 class="k-head">본인 정보</h2>
+      <div class="k-card">
+        <div class="k-form" style="gap:18px;padding:20px 16px">
+          <div class="k-field">
+            <label class="k-label" for="name">실명</label>
+            <input class="k-input" id="name" name="name" autocomplete="name" maxlength="50" aria-describedby="name-help">
+            <span class="k-help" id="name-help">재학생 명단의 이름과 똑같이 적어 주세요.</span>
+          </div>
+          <div class="k-field">
+            <label class="k-label" for="pw">비밀번호</label>
+            <input class="k-input" id="pw" name="password" type="password" autocomplete="new-password" maxlength="128" aria-describedby="pw-help">
+            <span class="k-help" id="pw-help">8자 이상, 영문·숫자 포함</span>
+          </div>
+          <div class="k-field">
+            <label class="k-label" for="pw2">비밀번호 확인</label>
+            <input class="k-input" id="pw2" type="password" autocomplete="new-password" maxlength="128" aria-describedby="pw2-help">
+            <span class="k-help" id="pw2-help" hidden></span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="k-head">개인정보 수집·이용 동의</h2>
+      <div class="k-card">
+        <div class="k-row"><span class="k-kvl">수집 항목</span><span class="k-grow">학번, 이름, 학년, 반</span></div>
+        <div class="k-row"><span class="k-kvl">이용 목적</span><span class="k-grow">본인 확인, 조식·석식 신청 집계, 메뉴 투표 참여 확인</span></div>
+        <div class="k-row"><span class="k-kvl">보존 기간</span><span class="k-grow">학년도 종료 후 3개월 (이후 삭제 또는 익명화)</span></div>
+        <label class="k-row s-agree" for="agree">
+          <input class="k-radio s-check" type="checkbox" id="agree" name="privacy_agreed" aria-describedby="agree-help">
+          <span class="k-grow k-t k-strong">위 내용에 동의해요</span>
+        </label>
+      </div>
+      <p class="k-cap" id="agree-help" style="margin:8px 32px 0">동의하지 않으면 가입할 수 없어요. 연락처·생년월일·주소는 받지 않아요.</p>
+    </div>
+  </form>
+  <div class="k-actions">
+    <button class="k-btn k-btn--block" type="submit" form="signup" id="submit" disabled>가입하기</button>
+    <p class="k-cap k-center" id="submit-help" style="margin:4px 0 0">학번 확인을 마쳐야 가입할 수 있어요.</p>
+  </div>
+</main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-signup.js"></script>
+</body>
+</html>

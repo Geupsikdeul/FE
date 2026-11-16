@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>내 희망 메뉴</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <nav class="k-nav" aria-label="뒤로">
+    <a href="Me.dc.html"><span class="k-chev k-chev--back"></span>내 정보</a>
+  </nav>
+  <header class="k-large k-large--push"><h1>내 희망 메뉴</h1></header>
+  <p class="k-lead">내가 신청한 메뉴와 진행 상태예요.</p>
+  <main class="k-main">
+    <h2 class="k-head" style="margin-top:0">3개</h2>
+    <div class="k-card">
+      <div class="k-row k-row--col">
+        <div>
+          <div class="k-flex"><span class="k-t k-strong">마라탕</span><span class="k-badge k-badge--primary">투표 후보 선정</span></div>
+          <div class="k-cap" style="margin-top:2px">10월 2일 신청 · 좋아요 142</div>
+        </div>
+        <div class="k-flex">
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button">수정</button>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button" disabled>삭제</button>
+        </div>
+      </div>
+      <div class="k-row k-row--col">
+        <div>
+          <div class="k-flex"><span class="k-t k-strong">순두부찌개</span><span class="k-badge k-badge--soft">좋아요 모으는 중</span></div>
+          <div class="k-cap" style="margin-top:2px">10월 5일 신청 · 좋아요 33</div>
+        </div>
+        <div class="k-flex">
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button">수정</button>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button">삭제</button>
+        </div>
+      </div>
+      <div class="k-row k-row--col">
+        <div>
+          <div class="k-flex"><span class="k-t k-strong">우동</span><span class="k-badge">지난 투표 미선정</span></div>
+          <div class="k-cap" style="margin-top:2px">9월 21일 신청 · 좋아요 12</div>
+        </div>
+        <div class="k-flex">
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button">수정</button>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button">삭제</button>
+        </div>
+      </div>
+    </div>
+    <p class="k-cap" style="margin:12px 20px 0">투표 후보로 선정된 메뉴는 투표가 끝날 때까지 삭제할 수 없어요.</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

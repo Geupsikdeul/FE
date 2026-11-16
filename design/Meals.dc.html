@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>식사 신청</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <header class="k-large"><h1>식사 신청</h1></header>
+  <main class="k-main">
+    <div class="k-banner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+      <span><b>응답하지 않으면 식사로 집계돼요.</b> 조식은 전날 18:00, 석식은 당일 12:00에 마감돼요.</span>
+    </div>
+
+    <div class="k-segwrap">
+      <div class="k-seg k-seg--full" role="group" aria-label="기간 선택">
+        <button type="button" class="is-on" aria-pressed="true">10/8 ~ 10/15</button>
+        <button type="button">10/16 ~ 10/22</button>
+      </div>
+    </div>
+    <div class="k-between" style="padding:0 20px 12px">
+      <span class="k-cap">조식·석식만 신청해요. 중식은 모두 제공돼요.</span>
+      <span class="k-strong k-pt">미응답 3끼</span>
+    </div>
+
+    <div class="k-stack">
+      <!-- 10/8: 조식 마감 -->
+      <section class="k-card" aria-label="10월 8일">
+        <div class="k-row" style="min-height:48px">
+          <h2 class="k-grow k-t k-strong" style="margin:0">10/8 <span class="k-sec" style="font-weight:400">(목)</span></h2>
+          <span class="k-badge">조식 마감</span>
+        </div>
+        <div class="k-row">
+          <div class="k-grow"><div class="k-strong">조식</div><div class="k-cap">전날 18:00 마감</div></div>
+          <div class="k-seg is-disabled"><button type="button" class="is-on" disabled>식사 ✓</button><button type="button" disabled>결식</button></div>
+        </div>
+        <div class="k-row">
+          <div class="k-grow"><div class="k-strong">석식</div><div class="k-cap">당일 12:00 마감</div></div>
+          <div class="k-seg"><button type="button" class="is-on">식사</button><button type="button">결식</button></div>
+        </div>
+      </section>
+
+      <!-- 10/9: 공휴일 -->
+      <section class="k-card" aria-label="10월 9일">
+        <div class="k-row" style="min-height:48px">
+          <h2 class="k-grow k-t k-strong" style="margin:0">10/9 <span class="k-sec" style="font-weight:400">(금 · 한글날)</span></h2>
+          <span class="k-badge">운영 안 함</span>
+        </div>
+        <div class="k-row">
+          <div class="k-grow k-sec">조식·석식 모두 운영하지 않아요.</div>
+        </div>
+      </section>
+
+      <!-- 10/12: 식사 / 결식 -->
+      <section class="k-card" aria-label="10월 12일">
+        <div class="k-row" style="min-height:48px">
+          <h2 class="k-grow k-t k-strong" style="margin:0">10/12 <span class="k-sec" style="font-weight:400">(월)</span></h2>
+        </div>
+        <div class="k-row">
+          <div class="k-grow"><div class="k-strong">조식</div></div>
+          <div class="k-seg"><button type="button" class="is-on">식사</button><button type="button">결식</button></div>
+        </div>
+        <div class="k-row">
+          <div class="k-grow"><div class="k-strong">석식</div></div>
+          <div class="k-seg"><button type="button">식사</button><button type="button" class="is-off">결식</button></div>
+        </div>
+      </section>
+
+      <!-- 10/13: 미응답 -->
+      <section class="k-card" aria-label="10월 13일">
+        <div class="k-row k-row--sel" style="min-height:48px">
+          <h2 class="k-grow k-t k-strong" style="margin:0">10/13 <span class="k-sec" style="font-weight:400">(화)</span></h2>
+          <span class="k-badge k-badge--primary">미응답 · 식사로 집계</span>
+        </div>
+        <div class="k-row k-row--sel">
+          <div class="k-grow"><div class="k-strong">조식</div></div>
+          <div class="k-seg"><button type="button">식사</button><button type="button">결식</button></div>
+        </div>
+        <div class="k-row k-row--sel">
+          <div class="k-grow"><div class="k-strong">석식</div></div>
+          <div class="k-seg"><button type="button">식사</button><button type="button">결식</button></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div class="k-savebar k-savebar--tab">
+    <button class="k-btn k-btn--block" type="button">신청 저장</button>
+  </div>
+  <nav class="k-tabbar" aria-label="주요 메뉴">
+    <a href="Main.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>홈</span></a>
+    <a href="Menu.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M17 21V3c-2 2-3 5-3 8h3"/></svg><span>식단표</span></a>
+    <a href="Meals.dc.html" class="is-on" aria-current="page"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg><span>식사 신청</span></a>
+    <a href="Requests.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><span>희망 메뉴</span></a>
+    <a href="Me.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg><span>마이</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

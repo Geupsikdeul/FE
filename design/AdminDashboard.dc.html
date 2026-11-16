@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>어드민 대시보드</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="a-shell">
+  <aside class="a-side">
+    <div class="a-logo">
+      <div class="k-mark k-mark--sm" style="margin:0" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+      <span class="a-logo__t">급식들</span>
+      <span class="k-badge k-badge--soft">영양사</span>
+    </div>
+    <nav class="a-nav" aria-label="어드민 메뉴">
+      <a href="AdminDashboard.dc.html" class="is-on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>대시보드</a>
+      <a href="AdminMeals.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg>희망 여부</a>
+      <a href="AdminVotes.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10M12 21V3M19 21v-7"/></svg>메뉴 투표</a>
+      <a href="AdminPlan.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/></svg>식단표 추천</a>
+      <a href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>설정</a>
+    </nav>
+    <div class="a-me">
+      <span class="a-avatar" aria-hidden="true">영</span>
+      <div><div class="k-strong">영양사 선생님</div><div class="k-cap">급식실</div></div>
+    </div>
+  </aside>
+
+  <main class="a-content">
+    <header class="a-top">
+      <div>
+        <h1>대시보드</h1>
+        <p>선택한 날의 조식·석식 예상 인원이에요. 미응답은 식사로 집계해요.</p>
+      </div>
+      <div class="a-actions">
+        <button class="k-iconbtn" type="button" aria-label="이전 날"><span class="k-chev k-chev--back" style="margin:0 0 0 4px"></span></button>
+        <span class="k-t k-strong">10월 13일 (화)</span>
+        <button class="k-iconbtn" type="button" aria-label="다음 날"><span class="k-chev" style="border-color:var(--primary-text);margin:0 4px 0 0"></span></button>
+      </div>
+    </header>
+
+    <section class="a-tiles" aria-label="핵심 수치">
+      <div class="a-tile">
+        <div class="k-cap">조식 예상 인원</div>
+        <div class="a-num">298명</div>
+        <div class="k-sec">식사 247 · 미응답 51 · 결식 62</div>
+      </div>
+      <div class="a-tile">
+        <div class="k-cap">석식 예상 인원</div>
+        <div class="a-num">322명</div>
+        <div class="k-sec">식사 281 · 미응답 41 · 결식 38</div>
+      </div>
+      <div class="a-tile a-tile--hi">
+        <div class="k-cap" style="color:var(--text)">미응답</div>
+        <div class="a-num">92명</div>
+        <div style="color:var(--text)">조식 51 · 석식 41 · 식사로 집계돼요</div>
+      </div>
+    </section>
+
+    <div class="a-split">
+      <section class="a-panel a-wide" aria-label="일별 예상 인원">
+        <div class="a-panel__head">
+          <h2>일별 예상 인원 <span class="k-sec" style="font-weight:400">10/8 ~ 10/15</span></h2>
+          <div class="a-legend"><span><i style="background:var(--primary)"></i>조식</span><span><i style="background:var(--on-primary)"></i>석식</span></div>
+        </div>
+        <div class="a-chart">
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--m" style="height:175px"></div><div class="a-b a-b--d" style="height:183px"></div></div><div class="a-dlab">10/8 <span class="k-sec" style="font-weight:400">목</span></div><div class="a-vals">304 · 318</div></div>
+          <div class="a-day"><div class="a-bars"><span class="a-off">한글날<br>운영 안 함</span></div><div class="a-dlab">10/9 <span class="k-sec" style="font-weight:400">금</span></div><div class="a-vals">– · –</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--d" style="height:110px"></div></div><div class="a-dlab">10/10 <span class="k-sec" style="font-weight:400">토</span></div><div class="a-vals">– · 190</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--d" style="height:101px"></div></div><div class="a-dlab">10/11 <span class="k-sec" style="font-weight:400">일</span></div><div class="a-vals">– · 176</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--m" style="height:179px"></div><div class="a-b a-b--d" style="height:187px"></div></div><div class="a-dlab">10/12 <span class="k-sec" style="font-weight:400">월</span></div><div class="a-vals">311 · 325</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--m" style="height:172px"></div><div class="a-b a-b--d" style="height:186px"></div></div><div class="a-dlab a-dlab--sel">10/13 <span style="font-weight:400">화</span></div><div class="a-vals">298 · 322</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--m" style="height:176px"></div><div class="a-b a-b--d" style="height:185px"></div></div><div class="a-dlab">10/14 <span class="k-sec" style="font-weight:400">수</span></div><div class="a-vals">305 · 320</div></div>
+          <div class="a-day"><div class="a-bars"><div class="a-b a-b--m" style="height:171px"></div><div class="a-b a-b--d" style="height:183px"></div></div><div class="a-dlab">10/15 <span class="k-sec" style="font-weight:400">목</span></div><div class="a-vals">296 · 317</div></div>
+        </div>
+        <p class="k-cap" style="margin:16px 0 0">막대 아래 숫자는 조식 · 석식 순서예요. 주말 조식은 운영하지 않아요.</p>
+      </section>
+
+      <div class="a-narrow a-col">
+        <section class="a-panel" aria-label="학년별 미응답">
+          <div class="a-panel__head"><h2>학년별 미응답</h2><span class="k-cap">10/13 조식·석식 합계</span></div>
+          <div class="a-list">
+            <div class="a-line"><div class="k-between"><span class="k-strong">1학년</span><span class="k-strong">38명</span></div><div class="k-bar" role="img" aria-label="1학년 38명"><i style="width:100%"></i></div></div>
+            <div class="a-line"><div class="k-between"><span class="k-strong">2학년</span><span class="k-strong">31명</span></div><div class="k-bar" role="img" aria-label="2학년 31명"><i style="width:82%"></i></div></div>
+            <div class="a-line"><div class="k-between"><span class="k-strong">3학년</span><span class="k-strong">23명</span></div><div class="k-bar" role="img" aria-label="3학년 23명"><i style="width:61%"></i></div></div>
+          </div>
+        </section>
+        <section class="a-panel" aria-label="진행 중인 일">
+          <div class="a-panel__head"><h2>진행 중인 일</h2></div>
+          <a class="a-link" href="AdminVotes.dc.html">
+            <div class="k-grow"><div class="k-strong">11월 특식 투표</div><div class="k-cap">10/15 18:00 마감 · 284명 참여</div></div>
+            <span class="k-badge k-badge--primary">진행 중</span><span class="k-chev"></span>
+          </a>
+          <a class="a-link" href="AdminPlan.dc.html">
+            <div class="k-grow"><div class="k-strong">11월 식단표 추천</div><div class="k-cap">중식 21일 중 3일 확정</div></div>
+            <span class="k-badge k-badge--soft">검토 필요</span><span class="k-chev"></span>
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-05T03:40:00Z" },
+  "title": "급식들 학생 앱 (모바일)",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Login.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "로그인", "is_interactive": true },
+    "Signup.dc.html": { "x": 470, "y": 0, "w": 390, "h": 940, "title": "회원가입", "is_interactive": true },
+    "Reset.dc.html": { "x": 940, "y": 0, "w": 390, "h": 844, "title": "비밀번호 찾기", "is_interactive": true },
+    "Logo.dc.html": { "x": 1410, "y": 0, "w": 390, "h": 620, "title": "로고" },
+    "Main.dc.html": { "x": 0, "y": 1060, "w": 390, "h": 900, "title": "홈", "is_interactive": true },
+    "Menu.dc.html": { "x": 470, "y": 1060, "w": 390, "h": 960, "title": "식단표", "is_interactive": true },
+    "Meals.dc.html": { "x": 940, "y": 1060, "w": 390, "h": 1240, "title": "식사 신청", "is_interactive": true },
+    "Requests.dc.html": { "x": 1410, "y": 1060, "w": 390, "h": 1040, "title": "희망 메뉴", "is_interactive": true },
+    "RequestNew.dc.html": { "x": 1880, "y": 1060, "w": 390, "h": 844, "title": "희망 메뉴 신청", "is_interactive": true },
+    "Vote.dc.html": { "x": 0, "y": 2420, "w": 390, "h": 960, "title": "메뉴 투표", "is_interactive": true },
+    "VoteDone.dc.html": { "x": 470, "y": 2420, "w": 390, "h": 900, "title": "메뉴 투표 · 투표 후", "is_interactive": true },
+    "Allergy.dc.html": { "x": 940, "y": 2420, "w": 390, "h": 900, "title": "내 알레르기", "is_interactive": true },
+    "Me.dc.html": { "x": 0, "y": 3500, "w": 390, "h": 1000, "title": "내 정보", "is_interactive": true },
+    "MeEdit.dc.html": { "x": 470, "y": 3500, "w": 390, "h": 960, "title": "정보 수정", "is_interactive": true },
+    "MePassword.dc.html": { "x": 940, "y": 3500, "w": 390, "h": 844, "title": "비밀번호 변경", "is_interactive": true },
+    "MeRequests.dc.html": { "x": 1410, "y": 3500, "w": 390, "h": 844, "title": "내 희망 메뉴", "is_interactive": true },
+    "MeNotifications.dc.html": { "x": 1880, "y": 3500, "w": 390, "h": 844, "title": "알림 설정", "is_interactive": true },
+    "AdminDashboard.dc.html": { "x": 0, "y": 4620, "w": 1280, "h": 820, "title": "어드민 · 대시보드", "expand": "fill", "is_interactive": true },
+    "AdminMeals.dc.html": { "x": 1360, "y": 4620, "w": 1280, "h": 1060, "title": "어드민 · 희망 여부", "expand": "fill", "is_interactive": true },
+    "AdminVotes.dc.html": { "x": 2720, "y": 4620, "w": 1280, "h": 840, "title": "어드민 · 메뉴 투표", "expand": "fill", "is_interactive": true },
+    "AdminPlan.dc.html": { "x": 4080, "y": 4620, "w": 1280, "h": 960, "title": "어드민 · 식단표 추천", "expand": "fill", "is_interactive": true },
+    "AdminSettings.dc.html": { "x": 5440, "y": 4620, "w": 1280, "h": 1100, "title": "어드민 · 설정", "expand": "fill", "is_interactive": true }
+  },
+  "order": [
+    "Login.dc.html", "Signup.dc.html", "Reset.dc.html", "Logo.dc.html",
+    "Main.dc.html", "Menu.dc.html", "Meals.dc.html", "Requests.dc.html", "RequestNew.dc.html",
+    "Vote.dc.html", "VoteDone.dc.html", "Allergy.dc.html",
+    "Me.dc.html", "MeEdit.dc.html", "MePassword.dc.html", "MeRequests.dc.html", "MeNotifications.dc.html",
+    "AdminDashboard.dc.html", "AdminMeals.dc.html", "AdminVotes.dc.html", "AdminPlan.dc.html", "AdminSettings.dc.html"
+  ],
+  "notes": {
+    "rowA": { "x": 0, "y": -240, "text": "계정", "kind": "title1", "maxW": 1330 },
+    "rowB": { "x": 0, "y": 820, "text": "홈 · 식단 · 신청", "kind": "title1", "maxW": 2270 },
+    "rowC": { "x": 0, "y": 2180, "text": "투표 · 알레르기", "kind": "title1", "maxW": 1330 },
+    "rowD": { "x": 0, "y": 3260, "text": "마이페이지", "kind": "title1", "maxW": 2270 },
+    "rowE": { "x": 0, "y": 4380, "text": "영양사 어드민 (웹)", "kind": "title1", "maxW": 6720 }
+  },
+  "designSystems": [
+    {
+      "title": "Konsta Yellow",
+      "namespace": "konsta-yellow",
+      "artifact": "https://claude.ai/artifact/KVmyLyRx246on7m3AXKN8x",
+      "version": "1793847255-baae",
+      "copiedAt": "2026-11-05T03:40:00Z"
+    }
+  ]
+}

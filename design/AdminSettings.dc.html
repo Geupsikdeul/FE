@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>어드민 설정</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="a-shell">
+  <aside class="a-side">
+    <div class="a-logo">
+      <div class="k-mark k-mark--sm" style="margin:0" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+      <span class="a-logo__t">급식들</span>
+      <span class="k-badge k-badge--soft">영양사</span>
+    </div>
+    <nav class="a-nav" aria-label="어드민 메뉴">
+      <a href="AdminDashboard.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>대시보드</a>
+      <a href="AdminMeals.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg>희망 여부</a>
+      <a href="AdminVotes.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10M12 21V3M19 21v-7"/></svg>메뉴 투표</a>
+      <a href="AdminPlan.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/></svg>식단표 추천</a>
+      <a href="AdminSettings.dc.html" class="is-on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>설정</a>
+    </nav>
+    <div class="a-me">
+      <span class="a-avatar" aria-hidden="true">영</span>
+      <div><div class="k-strong">영양사 선생님</div><div class="k-cap">급식실</div></div>
+    </div>
+  </aside>
+
+  <main class="a-content">
+    <header class="a-top">
+      <div>
+        <h1>설정</h1>
+        <p>식사 신청의 마감 시각과 운영 요일을 정해요.</p>
+      </div>
+      <div class="a-actions">
+        <button class="k-btn k-btn--sm" type="button">저장</button>
+      </div>
+    </header>
+
+    <div class="a-col" style="max-width:880px">
+      <section class="a-panel" aria-label="식사 신청">
+        <div class="a-panel__head"><h2>식사 신청</h2><span class="k-badge k-badge--soft">임시 값 · 기숙사 운영 기준으로 확인 필요</span></div>
+
+        <div class="a-set a-set--first">
+          <div class="a-set__l"><div class="k-t k-strong">조식 마감</div><div class="k-cap">이 시각이 지나면 학생의 식사 신청이 잠겨요.</div></div>
+          <div class="a-set__r"><select class="a-select" aria-label="조식 마감 기준일"><option selected>전날</option><option>당일</option></select><input class="a-input" value="18:00" aria-label="조식 마감 시각"></div>
+        </div>
+        <div class="a-set">
+          <div class="a-set__l"><div class="k-t k-strong">석식 마감</div><div class="k-cap">중식은 모두에게 제공돼서 신청하지 않아요.</div></div>
+          <div class="a-set__r"><select class="a-select" aria-label="석식 마감 기준일"><option>전날</option><option selected>당일</option></select><input class="a-input" value="12:00" aria-label="석식 마감 시각"></div>
+        </div>
+        <div class="a-set">
+          <div class="a-set__l"><div class="k-t k-strong">조식 · 중식 운영 요일</div></div>
+          <div class="a-days" role="group" aria-label="조식 중식 운영 요일">
+            <button class="k-chip is-on" type="button" aria-pressed="true">월</button><button class="k-chip is-on" type="button" aria-pressed="true">화</button><button class="k-chip is-on" type="button" aria-pressed="true">수</button><button class="k-chip is-on" type="button" aria-pressed="true">목</button><button class="k-chip is-on" type="button" aria-pressed="true">금</button><button class="k-chip" type="button" aria-pressed="false">토</button><button class="k-chip" type="button" aria-pressed="false">일</button>
+          </div>
+        </div>
+        <div class="a-set">
+          <div class="a-set__l"><div class="k-t k-strong">석식 운영 요일</div></div>
+          <div class="a-days" role="group" aria-label="석식 운영 요일">
+            <button class="k-chip is-on" type="button" aria-pressed="true">월</button><button class="k-chip is-on" type="button" aria-pressed="true">화</button><button class="k-chip is-on" type="button" aria-pressed="true">수</button><button class="k-chip is-on" type="button" aria-pressed="true">목</button><button class="k-chip is-on" type="button" aria-pressed="true">금</button><button class="k-chip is-on" type="button" aria-pressed="true">토</button><button class="k-chip is-on" type="button" aria-pressed="true">일</button>
+          </div>
+        </div>
+        <div class="a-set">
+          <div class="a-set__l"><div class="k-t k-strong">미응답 처리</div><div class="k-cap">응답하지 않은 학생은 식사로 집계해요. 학생 화면에도 항상 표시돼요.</div></div>
+          <span class="k-badge k-badge--soft">식사로 집계</span>
+        </div>
+      </section>
+
+      <section class="a-panel" aria-label="미운영일">
+        <div class="a-panel__head"><h2>미운영일</h2><button class="k-btn k-btn--tonal k-btn--sm" type="button">날짜 추가</button></div>
+        <div class="a-set a-set--first">
+          <div class="a-set__l"><div class="k-t k-strong">10월 9일 (금)</div><div class="k-cap">한글날 · 조식·중식·석식 모두 운영하지 않아요</div></div>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button">삭제</button>
+        </div>
+        <div class="a-set">
+          <div class="a-set__l"><div class="k-t k-strong">12월 25일 (금)</div><div class="k-cap">성탄절 · 조식·중식·석식 모두 운영하지 않아요</div></div>
+          <button class="k-btn k-btn--plain k-btn--sm" type="button">삭제</button>
+        </div>
+      </section>
+
+      <section class="a-panel" aria-label="계정">
+        <div class="a-panel__head"><h2>계정</h2><span class="k-badge k-badge--soft">임시 값</span></div>
+        <div class="a-set a-set--first">
+          <div class="a-set__l"><div class="k-t k-strong">학교 이메일 도메인</div><div class="k-cap">학생은 이 도메인의 이메일로만 가입하고 알림을 받아요.</div></div>
+          <div class="a-set__r"><input class="a-input a-input--wide" value="school.hs.kr" aria-label="학교 이메일 도메인"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

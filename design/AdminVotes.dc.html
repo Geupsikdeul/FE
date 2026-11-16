@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>어드민 메뉴 투표</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="a-shell">
+  <aside class="a-side">
+    <div class="a-logo">
+      <div class="k-mark k-mark--sm" style="margin:0" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+      <span class="a-logo__t">급식들</span>
+      <span class="k-badge k-badge--soft">영양사</span>
+    </div>
+    <nav class="a-nav" aria-label="어드민 메뉴">
+      <a href="AdminDashboard.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>대시보드</a>
+      <a href="AdminMeals.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg>희망 여부</a>
+      <a href="AdminVotes.dc.html" class="is-on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10M12 21V3M19 21v-7"/></svg>메뉴 투표</a>
+      <a href="AdminPlan.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/></svg>식단표 추천</a>
+      <a href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>설정</a>
+    </nav>
+    <div class="a-me">
+      <span class="a-avatar" aria-hidden="true">영</span>
+      <div><div class="k-strong">영양사 선생님</div><div class="k-cap">급식실</div></div>
+    </div>
+  </aside>
+
+  <main class="a-content">
+    <header class="a-top">
+      <div>
+        <h1>메뉴 투표 현황</h1>
+        <p>11월 특식 · 10월 15일(목) 18:00 마감</p>
+      </div>
+      <div class="a-actions">
+        <button class="k-btn k-btn--tonal k-btn--sm" type="button">후보 수정</button>
+        <button class="k-btn k-btn--sm" type="button">투표 마감하기</button>
+      </div>
+    </header>
+
+    <section class="a-tiles" aria-label="투표 요약">
+      <div class="a-tile">
+        <div class="k-cap">참여</div>
+        <div class="a-num">284명</div>
+        <div class="k-sec">전교생 360명 중 78.9%</div>
+      </div>
+      <div class="a-tile">
+        <div class="k-cap">마감까지</div>
+        <div class="a-num">2일 6시간</div>
+        <div class="k-sec">마감 전에는 학생이 투표를 한 번 바꿀 수 있어요</div>
+      </div>
+      <div class="a-tile a-tile--hi">
+        <div class="k-cap" style="color:var(--text)">현재 1위</div>
+        <div class="a-num">마라탕</div>
+        <div style="color:var(--text)">112표 · 39.4%</div>
+      </div>
+    </section>
+
+    <div class="a-split">
+      <section class="a-panel a-wide" aria-label="후보별 득표">
+        <div class="a-panel__head">
+          <h2>후보별 득표</h2>
+          <span class="k-cap">좋아요 상위 5개 + AI 추천 1개</span>
+        </div>
+        <div class="a-list">
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank k-rank--top" style="width:auto">1</span><span class="k-t k-strong">마라탕</span></span><span class="k-t k-strong">112표 · 39.4%</span></div>
+            <div class="k-bar" role="img" aria-label="마라탕 39.4%"><i style="width:39.4%"></i></div>
+          </div>
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank k-rank--top" style="width:auto">2</span><span class="k-t k-strong">치즈 돈까스</span></span><span class="k-t k-strong">58표 · 20.4%</span></div>
+            <div class="k-bar" role="img" aria-label="치즈 돈까스 20.4%"><i style="width:20.4%"></i></div>
+          </div>
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank k-rank--top" style="width:auto">3</span><span class="k-t k-strong">로제 떡볶이</span></span><span class="k-t k-strong">50표 · 17.6%</span></div>
+            <div class="k-bar" role="img" aria-label="로제 떡볶이 17.6%"><i style="width:17.6%"></i></div>
+          </div>
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank" style="width:auto">4</span><span class="k-t k-strong">제육 덮밥</span><span class="k-badge k-badge--primary">AI 추천</span></span><span class="k-t k-strong">27표 · 9.5%</span></div>
+            <div class="k-bar" role="img" aria-label="제육 덮밥 9.5%"><i style="width:9.5%"></i></div>
+          </div>
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank" style="width:auto">5</span><span class="k-t k-strong">닭갈비</span></span><span class="k-t k-strong">21표 · 7.4%</span></div>
+            <div class="k-bar" role="img" aria-label="닭갈비 7.4%"><i style="width:7.4%"></i></div>
+          </div>
+          <div class="a-line">
+            <div class="k-between"><span class="k-flex"><span class="k-rank" style="width:auto">6</span><span class="k-t k-strong">탕수육</span></span><span class="k-t k-strong">16표 · 5.6%</span></div>
+            <div class="k-bar" role="img" aria-label="탕수육 5.6%"><i style="width:5.6%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="a-narrow a-col">
+        <section class="a-panel" aria-label="학년별 참여">
+          <div class="a-panel__head"><h2>학년별 참여</h2><span class="k-cap">학년당 120명 기준</span></div>
+          <div class="a-list">
+            <div class="a-line"><div class="k-between"><span class="k-strong">1학년</span><span class="k-strong">96명 · 80.0%</span></div><div class="k-bar" role="img" aria-label="1학년 80.0%"><i style="width:80%"></i></div></div>
+            <div class="a-line"><div class="k-between"><span class="k-strong">2학년</span><span class="k-strong">101명 · 84.2%</span></div><div class="k-bar" role="img" aria-label="2학년 84.2%"><i style="width:84.2%"></i></div></div>
+            <div class="a-line"><div class="k-between"><span class="k-strong">3학년</span><span class="k-strong">87명 · 72.5%</span></div><div class="k-bar" role="img" aria-label="3학년 72.5%"><i style="width:72.5%"></i></div></div>
+          </div>
+        </section>
+        <section class="a-panel" aria-label="후보 안내">
+          <div class="a-panel__head"><h2>후보 안내</h2></div>
+          <div class="k-banner" style="margin:0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+            <span>후보로 선정된 희망 메뉴는 투표가 끝날 때까지 학생이 삭제할 수 없어요. <b>제육 덮밥</b>은 학년 구분 없이 고르게 좋아할 메뉴로 AI가 추천했어요.</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":840}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

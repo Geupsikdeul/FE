@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>홈</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <header class="k-large">
+    <div>
+      <p>10월 8일 목요일</p>
+      <h1>오늘의 급식</h1>
+    </div>
+    <div class="k-mark k-mark--sm" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+  </header>
+  <main class="k-main">
+    <div class="k-stack" style="padding:0 0 0 0">
+      <section class="k-card k-card--pad k-meal">
+        <div class="k-between"><h2>조식</h2><span class="k-badge k-badge--primary">식사 신청함</span></div>
+        <p>현미밥 · 북엇국 · 계란말이 · 배추김치</p>
+      </section>
+      <section class="k-card k-card--pad k-meal">
+        <div class="k-between"><h2>중식</h2></div>
+        <p>크림 새우 파스타 · 마늘빵 · 피클 · 요구르트</p>
+        <div class="k-badges"><span class="k-badge k-badge--danger">우유 · 새우 주의</span></div>
+      </section>
+      <section class="k-card k-card--pad k-meal">
+        <div class="k-between"><h2>석식</h2><span class="k-badge k-badge--soft">미응답 · 식사로 집계</span></div>
+        <p>잡곡밥 · 제육볶음 · 콩나물국 · 깍두기</p>
+      </section>
+    </div>
+
+    <h2 class="k-head">해야 할 일</h2>
+    <div class="k-card">
+      <a class="k-row" href="Meals.dc.html" style="min-height:68px">
+        <div class="k-grow">
+          <div class="k-t k-strong">식사 신청 미응답 3끼</div>
+          <div class="k-cap">10/13 ~ 10/15</div>
+        </div>
+        <span class="k-t k-pt k-strong">신청하기</span><span class="k-chev"></span>
+      </a>
+      <a class="k-row" href="Vote.dc.html" style="min-height:68px">
+        <div class="k-grow">
+          <div class="k-t k-strong">11월 특식 투표 진행 중</div>
+          <div class="k-cap">10/15 마감</div>
+        </div>
+        <span class="k-t k-pt k-strong">투표하기</span><span class="k-chev"></span>
+      </a>
+    </div>
+  </main>
+  <nav class="k-tabbar" aria-label="주요 메뉴">
+    <a href="Main.dc.html" class="is-on" aria-current="page"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>홈</span></a>
+    <a href="Menu.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v18M4 3v5a3 3 0 0 0 6 0V3M17 21V3c-2 2-3 5-3 8h3"/></svg><span>식단표</span></a>
+    <a href="Meals.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg><span>식사 신청</span></a>
+    <a href="Requests.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><span>희망 메뉴</span></a>
+    <a href="Me.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg><span>마이</span></a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

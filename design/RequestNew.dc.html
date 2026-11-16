@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>희망 메뉴 신청</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="k-screen">
+  <nav class="k-nav" aria-label="뒤로">
+    <a href="Requests.dc.html"><span class="k-chev k-chev--back"></span>희망 메뉴</a>
+  </nav>
+  <header class="k-large k-large--push"><h1>희망 메뉴 신청</h1></header>
+  <p class="k-lead">모두 입력해야 등록할 수 있어요.</p>
+  <main class="k-main">
+    <form class="k-card">
+      <div class="k-form" style="gap:18px;padding:20px 16px">
+        <div class="k-field">
+          <label class="k-label" for="menu">메뉴 이름</label>
+          <input class="k-input" id="menu" value="마라탕">
+        </div>
+        <div class="k-pair">
+          <div class="k-field">
+            <label class="k-label" for="name">이름</label>
+            <input class="k-input" id="name" value="최지민">
+          </div>
+          <div class="k-field">
+            <label class="k-label" for="sid">학번</label>
+            <input class="k-input" id="sid" inputmode="numeric" value="2308">
+          </div>
+        </div>
+        <div class="k-field">
+          <label class="k-label" for="why">사유</label>
+          <textarea class="k-input k-textarea k-input--error" id="why" placeholder="왜 먹고 싶은지 적어 주세요" aria-describedby="why-err"></textarea>
+          <span class="k-help k-help--error" id="why-err">사유를 입력해 주세요.</span>
+        </div>
+        <span class="k-help">이름·학번은 내 계정 정보와 대조해 확인해요.</span>
+      </div>
+    </form>
+  </main>
+  <div class="k-savebar">
+    <button class="k-btn k-btn--block" type="button" disabled>등록하기</button>
+    <a class="k-btn k-btn--plain k-btn--block k-btn--sm" href="Requests.dc.html">취소</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

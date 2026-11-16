@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efeff4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="급식들">
+<link rel="manifest" href="/static/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/icon-180.png">
+<title>홈 · 급식들</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body class="m">
+<div class="k-screen">
+<header class="k-large">
+  <div><p id="today"></p><h1>오늘의 급식</h1></div>
+  <div class="k-mark k-mark--sm" id="mark"></div>
+</header>
+<main class="k-main">
+  <div id="flash"></div>
+  <div id="content"></div>
+</main>
+<div class="k-dock" id="dock"></div>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/s-common.js"></script>
+<script src="/static/js/pages/s-home.js"></script>
+</body>
+</html>

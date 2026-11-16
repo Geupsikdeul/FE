@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>어드민 희망 여부</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="a-shell">
+  <aside class="a-side">
+    <div class="a-logo">
+      <div class="k-mark k-mark--sm" style="margin:0" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+      <span class="a-logo__t">급식들</span>
+      <span class="k-badge k-badge--soft">영양사</span>
+    </div>
+    <nav class="a-nav" aria-label="어드민 메뉴">
+      <a href="AdminDashboard.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>대시보드</a>
+      <a href="AdminMeals.dc.html" class="is-on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg>희망 여부</a>
+      <a href="AdminVotes.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10M12 21V3M19 21v-7"/></svg>메뉴 투표</a>
+      <a href="AdminPlan.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/></svg>식단표 추천</a>
+      <a href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>설정</a>
+    </nav>
+    <div class="a-me">
+      <span class="a-avatar" aria-hidden="true">영</span>
+      <div><div class="k-strong">영양사 선생님</div><div class="k-cap">급식실</div></div>
+    </div>
+  </aside>
+
+  <main class="a-content">
+    <header class="a-top">
+      <div>
+        <h1>희망 여부</h1>
+        <p>날짜와 끼니별로 학생들의 식사·결식 응답을 모아봐요.</p>
+      </div>
+      <div class="a-actions">
+        <button class="k-btn k-btn--tonal k-btn--sm" type="button">엑셀로 내보내기</button>
+      </div>
+    </header>
+
+    <section class="a-tiles" aria-label="석식 집계">
+      <div class="a-tile">
+        <div class="k-cap">식사 · 석식 (전교생 360명 기준)</div>
+        <div class="a-num">281명</div>
+        <div class="k-sec">직접 식사를 선택했어요</div>
+      </div>
+      <div class="a-tile">
+        <div class="k-cap">결식 · 석식</div>
+        <div class="a-num">38명</div>
+        <div class="k-sec">식사하지 않아요</div>
+      </div>
+      <div class="a-tile a-tile--hi">
+        <div class="k-cap" style="color:var(--text)">미응답 · 석식</div>
+        <div class="a-num">41명</div>
+        <div style="color:var(--text)">식사로 집계돼요 · 예상 322명</div>
+      </div>
+    </section>
+
+    <section class="a-panel" style="margin-top:16px" aria-label="학생별 응답">
+      <form class="a-filters">
+        <div class="k-field"><label class="k-label" for="d">날짜</label>
+          <select class="a-select" id="d"><option>10월 13일 (화)</option><option>10월 12일 (월)</option><option>10월 14일 (수)</option></select></div>
+        <div class="k-field"><label class="k-label" for="g">학년</label>
+          <select class="a-select" id="g"><option>전체</option><option selected>2학년</option><option>1학년</option><option>3학년</option></select></div>
+        <div class="k-field"><label class="k-label" for="c">반</label>
+          <select class="a-select" id="c"><option>전체</option><option selected>3반</option><option>1반</option><option>2반</option></select></div>
+        <div class="k-field"><span class="k-label">끼니</span>
+          <div class="k-seg" role="group" aria-label="끼니"><button type="button">조식</button><button type="button" class="is-on" aria-pressed="true">석식</button></div></div>
+        <div class="k-field" style="flex:1 1 220px"><label class="k-label" for="q">검색</label>
+          <input class="k-input" id="q" style="height:44px;border-radius:12px;font-size:15px" placeholder="이름 또는 학번"></div>
+      </form>
+
+      <div class="a-tablewrap">
+        <table class="a-table">
+          <thead><tr><th>학번</th><th>이름</th><th>반</th><th>석식 응답</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td class="num" style="text-align:left">2301</td><td class="k-strong">김○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+            <tr><td class="num" style="text-align:left">2302</td><td class="k-strong">이○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+            <tr class="is-sel"><td class="num" style="text-align:left">2303</td><td class="k-strong">박○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--soft">미응답</span></td><td>식사로 집계</td></tr>
+            <tr><td class="num" style="text-align:left">2304</td><td class="k-strong">정○○</td><td>2학년 3반</td><td><span class="k-badge">결식</span></td><td class="k-sec">–</td></tr>
+            <tr><td class="num" style="text-align:left">2305</td><td class="k-strong">최○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+            <tr><td class="num" style="text-align:left">2306</td><td class="k-strong">강○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+            <tr class="is-sel"><td class="num" style="text-align:left">2307</td><td class="k-strong">조○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--soft">미응답</span></td><td>식사로 집계</td></tr>
+            <tr><td class="num" style="text-align:left">2308</td><td class="k-strong">한○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+            <tr><td class="num" style="text-align:left">2309</td><td class="k-strong">윤○○</td><td>2학년 3반</td><td><span class="k-badge">결식</span></td><td class="k-sec">–</td></tr>
+            <tr><td class="num" style="text-align:left">2310</td><td class="k-strong">장○○</td><td>2학년 3반</td><td><span class="k-badge k-badge--primary">식사</span></td><td class="k-sec">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="a-pager">
+        <span>2학년 3반 29명 중 1–10번</span>
+        <div class="a-actions">
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button" disabled>이전</button>
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button">다음</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1060}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

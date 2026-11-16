@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>어드민 식단표 추천</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="a-shell">
+  <aside class="a-side">
+    <div class="a-logo">
+      <div class="k-mark k-mark--sm" style="margin:0" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 48 48" fill="currentColor"><path d="M11 19L13 7l5.5 6L24 5l5.5 8L35 7l2 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="13" cy="6.5" r="2"/><circle cx="24" cy="4.5" r="2"/><circle cx="35" cy="6.5" r="2"/><rect x="11" y="20.5" width="26" height="3.5" rx="1.75"/><path d="M10 33c0-6 6-7.5 14-7.5S38 27 38 33z" fill="#fff"/><path d="M8 31h32c0 9-6.5 13-16 13S8 40 8 31z"/></svg></div>
+      <span class="a-logo__t">급식들</span>
+      <span class="k-badge k-badge--soft">영양사</span>
+    </div>
+    <nav class="a-nav" aria-label="어드민 메뉴">
+      <a href="AdminDashboard.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>대시보드</a>
+      <a href="AdminMeals.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4"/><path d="M9 2h6v4H9z"/><path d="M9 14l2 2 4-4"/></svg>희망 여부</a>
+      <a href="AdminVotes.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10M12 21V3M19 21v-7"/></svg>메뉴 투표</a>
+      <a href="AdminPlan.dc.html" class="is-on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v15H4zM4 10h16M8 3v4M16 3v4"/></svg>식단표 추천</a>
+      <a href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>설정</a>
+    </nav>
+    <div class="a-me">
+      <span class="a-avatar" aria-hidden="true">영</span>
+      <div><div class="k-strong">영양사 선생님</div><div class="k-cap">급식실</div></div>
+    </div>
+  </aside>
+
+  <main class="a-content">
+    <header class="a-top">
+      <div>
+        <h1>식단표 추천</h1>
+        <p>한 달 식단을 끼니별로 추천받고, 날짜를 눌러 확정해요.</p>
+      </div>
+      <div class="a-actions">
+        <button class="k-iconbtn" type="button" aria-label="이전 달"><span class="k-chev k-chev--back" style="margin:0 0 0 4px"></span></button>
+        <span class="k-t k-strong">2026년 11월</span>
+        <button class="k-iconbtn" type="button" aria-label="다음 달"><span class="k-chev" style="border-color:var(--primary-text);margin:0 4px 0 0"></span></button>
+        <button class="k-btn k-btn--sm" type="button" style="margin-left:8px">추천 다시 받기</button>
+      </div>
+    </header>
+
+    <div class="a-split" style="margin-top:0">
+      <section class="a-panel a-wide" aria-label="월간 식단표">
+        <div class="a-panel__head">
+          <div class="k-seg" role="group" aria-label="끼니"><button type="button">조식</button><button type="button" class="is-on" aria-pressed="true">중식</button><button type="button">석식</button></div>
+          <div class="a-legend"><span><i style="background:var(--primary-soft);box-shadow:inset 0 0 0 1px var(--primary)"></i>선택한 날</span><span>확정 3일 · 추천 18일</span></div>
+        </div>
+        <div class="a-cal">
+          <div class="a-dow">일</div><div class="a-dow">월</div><div class="a-dow">화</div><div class="a-dow">수</div><div class="a-dow">목</div><div class="a-dow">금</div><div class="a-dow">토</div>
+
+          <div class="a-cell a-cell--off"><b>1</b><span class="k-cap">미운영</span></div>
+          <button class="a-cell" type="button" aria-label="11월 2일 제육 덮밥 확정"><b>2</b><span class="a-dish">제육 덮밥</span><em>확정 ✓</em></button>
+          <button class="a-cell" type="button" aria-label="11월 3일 닭곰탕 확정"><b>3</b><span class="a-dish">닭곰탕</span><em>확정 ✓</em></button>
+          <button class="a-cell" type="button" aria-label="11월 4일 돈까스 카레 확정"><b>4</b><span class="a-dish">돈까스 카레</span><em>확정 ✓</em></button>
+          <button class="a-cell" type="button" aria-label="11월 5일 불고기 비빔밥 추천"><b>5</b><span class="a-dish">불고기 비빔밥</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 6일 오므라이스 추천"><b>6</b><span class="a-dish">오므라이스</span><em>추천</em></button>
+          <div class="a-cell a-cell--off"><b>7</b><span class="k-cap">미운영</span></div>
+
+          <div class="a-cell a-cell--off"><b>8</b><span class="k-cap">미운영</span></div>
+          <button class="a-cell" type="button" aria-label="11월 9일 순두부찌개 추천"><b>9</b><span class="a-dish">순두부찌개</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 10일 치킨마요덮밥 추천"><b>10</b><span class="a-dish">치킨마요덮밥</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 11일 잔치국수 추천"><b>11</b><span class="a-dish">잔치국수</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 12일 김치볶음밥 추천"><b>12</b><span class="a-dish">김치볶음밥</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 13일 생선구이 정식 추천"><b>13</b><span class="a-dish">생선구이 정식</span><em>추천</em></button>
+          <div class="a-cell a-cell--off"><b>14</b><span class="k-cap">미운영</span></div>
+
+          <div class="a-cell a-cell--off"><b>15</b><span class="k-cap">미운영</span></div>
+          <button class="a-cell" type="button" aria-label="11월 16일 부대찌개 추천"><b>16</b><span class="a-dish">부대찌개</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 17일 함박스테이크 추천"><b>17</b><span class="a-dish">함박스테이크</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 18일 비빔국수 추천"><b>18</b><span class="a-dish">비빔국수</span><em>추천</em></button>
+          <button class="a-cell a-cell--sel" type="button" aria-label="11월 19일 마라탕 특식, 선택됨" aria-pressed="true"><b>19</b><span class="a-dish">마라탕</span><em>특식 · 투표 반영</em></button>
+          <button class="a-cell" type="button" aria-label="11월 20일 짜장밥 추천"><b>20</b><span class="a-dish">짜장밥</span><em>추천</em></button>
+          <div class="a-cell a-cell--off"><b>21</b><span class="k-cap">미운영</span></div>
+
+          <div class="a-cell a-cell--off"><b>22</b><span class="k-cap">미운영</span></div>
+          <button class="a-cell" type="button" aria-label="11월 23일 소불고기 추천"><b>23</b><span class="a-dish">소불고기</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 24일 쭈꾸미 덮밥 추천"><b>24</b><span class="a-dish">쭈꾸미 덮밥</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 25일 닭갈비 추천"><b>25</b><span class="a-dish">닭갈비</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 26일 육개장 추천"><b>26</b><span class="a-dish">육개장</span><em>추천</em></button>
+          <button class="a-cell" type="button" aria-label="11월 27일 새우 볶음밥 추천"><b>27</b><span class="a-dish">새우 볶음밥</span><em>추천</em></button>
+          <div class="a-cell a-cell--off"><b>28</b><span class="k-cap">미운영</span></div>
+
+          <div class="a-cell a-cell--off"><b>29</b><span class="k-cap">미운영</span></div>
+          <button class="a-cell" type="button" aria-label="11월 30일 된장찌개 정식 추천"><b>30</b><span class="a-dish">된장찌개 정식</span><em>추천</em></button>
+          <div class="a-cell a-cell--blank"></div><div class="a-cell a-cell--blank"></div><div class="a-cell a-cell--blank"></div><div class="a-cell a-cell--blank"></div><div class="a-cell a-cell--blank"></div>
+        </div>
+      </section>
+
+      <aside class="a-panel a-narrow" aria-label="선택한 날 상세" style="align-self:flex-start">
+        <div class="a-panel__head">
+          <h2>11월 19일 (목) 중식</h2>
+          <span class="k-badge k-badge--primary">11월 특식 반영</span>
+        </div>
+        <p class="k-sec" style="margin:0 0 16px">현재 투표 1위 마라탕(112표)이 자동으로 들어갔어요. 투표가 끝나면 확정할 수 있어요.</p>
+        <div class="k-card" style="margin:0;background:var(--field)">
+          <div class="k-row k-row--col">
+            <div class="k-t k-strong">마라탕</div>
+            <div class="k-badges"><span class="k-badge">5 대두</span><span class="k-badge">6 밀</span><span class="k-badge">10 돼지고기</span></div>
+          </div>
+          <div class="k-row k-row--col">
+            <div class="k-t k-strong">공기밥</div>
+            <div class="k-cap">알레르기 유발 물질 없음</div>
+          </div>
+          <div class="k-row k-row--col">
+            <div class="k-t k-strong">단무지 무침</div>
+            <div class="k-cap">알레르기 유발 물질 없음</div>
+          </div>
+          <div class="k-row k-row--col">
+            <div class="k-t k-strong">요구르트</div>
+            <div class="k-badges"><span class="k-badge">2 우유</span></div>
+          </div>
+        </div>
+        <div class="a-actions" style="margin-top:16px">
+          <button class="k-btn k-btn--tonal k-btn--sm" type="button">메뉴 바꾸기</button>
+          <button class="k-btn k-btn--sm" type="button" disabled>확정하기</button>
+        </div>
+        <p class="k-cap" style="margin:8px 0 0">투표가 끝나기 전에는 확정할 수 없어요.</p>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

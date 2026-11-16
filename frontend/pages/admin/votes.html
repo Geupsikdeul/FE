@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>메뉴 투표 · 급식들 어드민</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/web.css">
+</head>
+<body>
+<div class="a-shell">
+  <aside class="a-side" id="a-side"></aside>
+  <main class="a-content">
+    <div id="msg" class="a-msg"></div>
+    <header class="a-top">
+      <div><h1>메뉴 투표</h1><p>투표를 만들고 공개·마감하고 결과를 확인해요. 공개하기 전에는 학생에게 보이지 않아요.</p></div>
+      <div class="a-actions"><a class="k-btn k-btn--sm" href="/admin/poll-new">새 투표 만들기</a></div>
+    </header>
+
+    <section class="a-panel" aria-label="투표 목록">
+      <div class="a-filters">
+        <div class="k-field"><span class="k-label" id="st-l">상태</span>
+          <div class="k-seg" role="radiogroup" aria-labelledby="st-l" id="st">
+            <label><input type="radio" name="st" value="all" checked>전체</label>
+            <label><input type="radio" name="st" value="draft">비공개</label>
+            <label><input type="radio" name="st" value="scheduled">시작 전</label>
+            <label><input type="radio" name="st" value="open">진행 중</label>
+            <label><input type="radio" name="st" value="closed">마감</label>
+          </div></div>
+        <span class="k-cap" id="count" style="margin-left:auto"></span>
+      </div>
+      <div class="a-tablewrap">
+        <table class="a-table">
+          <thead><tr><th>제목</th><th>대상 날짜</th><th>투표 기간 (KST)</th><th>상태</th><th class="num">참여</th><th class="num">선택지</th><th></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="7" class="k-sec" style="text-align:center;padding:32px">불러오는 중…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/ui.js"></script>
+<script src="/static/js/pages/a-shell.js"></script>
+<script src="/static/js/pages/a-votes.js"></script>
+</body>
+</html>
